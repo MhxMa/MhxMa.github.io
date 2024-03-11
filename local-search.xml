@@ -4,6 +4,434 @@
   
   
   <entry>
+    <title>模板 - LCA (树)</title>
+    <link href="/2024/03/11/muban-lca-tree/"/>
+    <url>/2024/03/11/muban-lca-tree/</url>
+    
+    <content type="html"><![CDATA[<h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p>给定n个点的树(1是根)，m次询问，每次询问两点的LCA;</p><h3 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h3><p>第一行两个整数,n,m;<br>接下来n-1行,给定正整数a,b,表示a,b间有边;<br>接下来m行,给定整数a,b,表示询问a,b;  </p><h3 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h3><p>对于每个询问,输出它们的LCA;  </p><h3 id="样例数据"><a href="#样例数据" class="headerlink" title="样例数据"></a>样例数据</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">3 </span><span class="hljs-number">2</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span><br><span class="hljs-symbol">2 </span><span class="hljs-number">3</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span><br><span class="hljs-symbol">2 </span><span class="hljs-number">3</span><br></code></pre></td></tr></table></figure><h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">1<br>2<br></code></pre></td></tr></table></figure><h3 id="方法1（tarjan“向上标记法”）"><a href="#方法1（tarjan“向上标记法”）" class="headerlink" title="方法1（tarjan“向上标记法”）"></a>方法1（tarjan“向上标记法”）</h3><p>dfs 一条路搜到底时，搜到了起点，在回溯返回时每次将子节点通过倒序合并到父节点上，当搜到终点时，那么 father[起点] 就是起点和终点的转折点LCA。</p><h3 id="方法2（RMQ树上倍增法）"><a href="#方法2（RMQ树上倍增法）" class="headerlink" title="方法2（RMQ树上倍增法）"></a>方法2（RMQ树上倍增法）</h3><p>需要一个数组 $F$，$F[i][j]$ 表示 $i$ 节点之前第 $2^j$ 号祖先。当然，$F[i][0]$ 即是 $i$ 的父节点。<br>$F[i][j]&#x3D;&#x3D;F[F[i][j-1]][j-1]$。<br>那么可以 $O(n log n)$预处理出数组 $F$ </p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">prepare</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> fence=<span class="hljs-built_in">log</span>(<span class="hljs-number">1.0</span>*(max_dep))/<span class="hljs-built_in">log</span>(<span class="hljs-number">2.0</span>);<br>    p[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]=<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=fence;j++)<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>            <span class="hljs-keyword">if</span>(p[i][j<span class="hljs-number">-1</span>]!=<span class="hljs-number">-1</span>)<br>                p[i][j]=p[p[i][j<span class="hljs-number">-1</span>]][j<span class="hljs-number">-1</span>];<br>&#125;<br></code></pre></td></tr></table></figure><p>对于每个起点 $a$，终点 $b$。<br>先求出他们的深度数组与 $F$ 数组<br>每次求 LCA 将两个点深度调为一致。然后可以通过一起向上跳的方法求出LCA。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">LCA</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(a==b) <span class="hljs-keyword">return</span> a;<br>    <span class="hljs-keyword">if</span>(dep[b]&gt;dep[a]) <span class="hljs-built_in">swap</span>(a,b);<br>    <span class="hljs-type">int</span> D;<br>    <span class="hljs-keyword">for</span>(D=<span class="hljs-number">0</span>;(<span class="hljs-number">1</span>&lt;&lt;D)&lt;=dep[a];D++);<br>    D--; <span class="hljs-comment">//确定a的最大2次幂深度；</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=D;j&gt;=<span class="hljs-number">0</span>;j--)<br>        <span class="hljs-keyword">if</span>(dep[a]-(<span class="hljs-number">1</span>&lt;&lt;j)&gt;=dep[b])<br>            a=p[a][j]; <span class="hljs-comment">//令a与b深度相同；</span><br>    <span class="hljs-keyword">if</span>(a==b) <span class="hljs-keyword">return</span> a;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=D;j&gt;=<span class="hljs-number">0</span>;j--)<br>        <span class="hljs-keyword">if</span>(p[a][j]!=<span class="hljs-number">-1</span> &amp;&amp; p[a][j]!=p[b][j])<br>            a=p[a][j],b=p[b][j];<br>    <span class="hljs-keyword">return</span> p[a][<span class="hljs-number">0</span>];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>树</category>
+      
+      <category>最近公共祖先</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 状态压缩</title>
+    <link href="/2024/03/11/muban-zhuangya/"/>
+    <url>/2024/03/11/muban-zhuangya/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/44612da218524149bcb995e06d0b3cbf.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>状态压缩</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 矩阵快速幂</title>
+    <link href="/2024/03/11/muban-juzhen-quick_pow/"/>
+    <url>/2024/03/11/muban-juzhen-quick_pow/</url>
+    
+    <content type="html"><![CDATA[<p>矩阵快速幂&#x3D;矩阵乘法+快速幂</p><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/bb5335de2f1843e3a03d261d14a67e37.png"></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll; <br><span class="hljs-type">const</span> <span class="hljs-type">int</span> syk=<span class="hljs-number">1e9</span>+<span class="hljs-number">7</span>;<br>ll a[<span class="hljs-number">105</span>][<span class="hljs-number">105</span>],b;<br><span class="hljs-type">int</span> n;<br>ll ans[<span class="hljs-number">105</span>][<span class="hljs-number">105</span>]=&#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> ll <span class="hljs-title">read</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-comment">//快读</span><br><span class="hljs-type">char</span> c=<span class="hljs-built_in">getchar</span>();<br>ll f=<span class="hljs-number">1</span>,x=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>(c&lt;<span class="hljs-string">&#x27;0&#x27;</span>||c&gt;<span class="hljs-string">&#x27;9&#x27;</span>)&#123; <br><span class="hljs-keyword">if</span>(c==<span class="hljs-string">&#x27;-&#x27;</span>)<br>f=<span class="hljs-number">-1</span>;<br>c=<span class="hljs-built_in">getchar</span>();<br>&#125;<br><span class="hljs-keyword">while</span>(c&gt;=<span class="hljs-string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="hljs-string">&#x27;9&#x27;</span>)&#123;<br>x=(x&lt;&lt;<span class="hljs-number">1</span>)+(x&lt;&lt;<span class="hljs-number">3</span>)+(c^<span class="hljs-string">&#x27;0&#x27;</span>);<br>c=<span class="hljs-built_in">getchar</span>();<br>&#125;<br><span class="hljs-keyword">return</span> x*f;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">jzcf1</span><span class="hljs-params">()</span></span>&#123;  <span class="hljs-comment">//快速幂里的第1个乘法式子子ans=ans*a</span><br>ll c[<span class="hljs-number">105</span>][<span class="hljs-number">105</span>]=&#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">1</span>;k&lt;=n;k++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>c[i][j]=(c[i][j]+ans[i][k]*a[k][j])%syk; <span class="hljs-comment">//mod 1e9+7</span><br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>ans[i][j]=c[i][j];<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">jzcf2</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-comment">//快速幂里的第2个乘法式子子a=a*a</span><br>ll c[<span class="hljs-number">105</span>][<span class="hljs-number">105</span>]=&#123;<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">1</span>;k&lt;=n;k++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>c[i][j]=(c[i][j]+a[i][k]*a[k][j])%syk;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>a[i][j]=c[i][j];<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>n=(<span class="hljs-type">int</span>)<span class="hljs-built_in">read</span>(),b=<span class="hljs-built_in">read</span>();<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)<br>a[i][j]=<span class="hljs-built_in">read</span>();<span class="hljs-comment">//读入</span><br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>ans[i][i]=<span class="hljs-number">1</span>;  <span class="hljs-comment">//把ans初始化成单位矩阵</span><br><span class="hljs-keyword">while</span>(b)&#123;  <span class="hljs-comment">//快速幂</span><br><span class="hljs-keyword">if</span>(b&amp;<span class="hljs-number">1</span>)<br><span class="hljs-built_in">jzcf1</span>();<span class="hljs-comment">//把快速幂里的乘法改成矩阵乘法</span><br><span class="hljs-built_in">jzcf2</span>();<br>b&gt;&gt;=<span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123; <span class="hljs-comment">//输出</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld &quot;</span>,ans[i][j]%syk);<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;  <br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>快速幂</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - SPFA的SLF优化</title>
+    <link href="/2024/03/11/muban-spfa-SLFyouhua/"/>
+    <url>/2024/03/11/muban-spfa-SLFyouhua/</url>
+    
+    <content type="html"><![CDATA[<p>SLF 优化就是 small label first 优化，由于先扩展最小的点可以尽量使程序尽早结束<br>因此当加入一个新点 u 的时候，如果此时的 dis[u] 比队首的 dis[q.front()] 小的话，就将点 v 加入队首，否则加入队尾<br>利用 STL 中的双端队列 deque 即可</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br><span class="hljs-type">int</span> u, v, w;<br>&#125; e[MAXN];<br><span class="hljs-type">int</span> cnt, f[MAXN], dis[MAXN], vis[MAXN];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span> </span>&#123;<br>e[++cnt] = (Edge) &#123;<br>f[u], v, w<br>&#125;;<br>f[u] = cnt;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SPFA</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>deque&lt;<span class="hljs-type">int</span>&gt; q;<br>q.<span class="hljs-built_in">push_front</span>(s);<br>dis[s] = <span class="hljs-number">0</span>;<br>vis[s] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br><span class="hljs-type">int</span> t = q.<span class="hljs-built_in">front</span>();<br>q.<span class="hljs-built_in">pop_front</span>();<br>vis[t] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f[t]; i; i = e[i].u) &#123;<br><span class="hljs-type">int</span> v = e[i].v;<br><span class="hljs-keyword">if</span> (dis[v] &gt; dis[t] + e[i].w) &#123;<br>dis[v] = dis[t] + e[i].w;<br><span class="hljs-keyword">if</span> (!vis[v]) &#123;<br>vis[v] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">if</span> (!q.<span class="hljs-built_in">empty</span>() &amp;&amp; dis[v] &lt; dis[q.<span class="hljs-built_in">front</span>()] &#123;<br>q.<span class="hljs-built_in">push_front</span>(v);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>q.<span class="hljs-built_in">push_back</span>(v);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-built_in">main</span>() &#123;<br><span class="hljs-type">int</span> n, m, s, t, w;<br>cin &gt;&gt; n &gt;&gt; m;<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(f));<br><span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(vis));<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">0x3f</span>, <span class="hljs-built_in">sizeof</span>(dis));<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>cin &gt;&gt; s &gt;&gt; t &gt;&gt; w;<br><span class="hljs-built_in">Add</span>(s, t, w);<br>&#125;<br><span class="hljs-built_in">SPFA</span>(<span class="hljs-number">1</span>);<br>cout &lt;&lt; dis[n] &lt;&lt; endl;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>最短路</category>
+      
+      <category>算法</category>
+      
+      <category>slf优化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 快速幂</title>
+    <link href="/2024/03/11/muban-quick_pow/"/>
+    <url>/2024/03/11/muban-quick_pow/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> b, p, k;<br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span>  <span class="hljs-title">quik_power</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> base, <span class="hljs-type">long</span> <span class="hljs-type">long</span> power,<span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span> </span>&#123;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span>  result = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (power &gt; <span class="hljs-number">0</span>) &#123;         <span class="hljs-comment">//指数大于0进行指数折半，底数变其平方的操作</span><br><span class="hljs-keyword">if</span> (power &amp; <span class="hljs-number">1</span>)     <span class="hljs-comment">//指数为奇数</span><br>result=result * base%k;     <span class="hljs-comment">//分离出当前项并累乘后保存</span><br>power &gt;&gt;= <span class="hljs-number">1</span>;            <span class="hljs-comment">//指数折半</span><br>base=base * base%k;           <span class="hljs-comment">//底数变其平方</span><br>&#125;<br><span class="hljs-keyword">return</span> result;              <span class="hljs-comment">//返回最终结果</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    cin&gt;&gt;b&gt;&gt;p&gt;&gt;k;<br>    cout&lt;&lt;<span class="hljs-built_in">quik_power</span>(b,p,k);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>快速幂</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - Bellman-Ford</title>
+    <link href="/2024/03/11/muban-Bellman-Ford/"/>
+    <url>/2024/03/11/muban-Bellman-Ford/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">100000</span>;<br><span class="hljs-type">int</span> n, w, m;<br><span class="hljs-type">int</span> dis[N];<br><span class="hljs-type">int</span> k = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br><span class="hljs-type">int</span> start;<br><span class="hljs-type">int</span> endd;<br><span class="hljs-type">int</span> value;<br>&#125; edge[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span> </span>&#123;<br>edge[k].start = u;<br>edge[k].endd = v;<br>edge[k].value = w;<br>k++;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Ford</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">100000</span>, <span class="hljs-built_in">sizeof</span>(dis));<br>dis[s] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br><span class="hljs-type">bool</span> flag = <span class="hljs-literal">true</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; k; j++) &#123;<br><span class="hljs-type">int</span> u = edge[j].start;<br><span class="hljs-type">int</span> v = edge[j].endd;<br><span class="hljs-type">int</span> w = edge[j].value;<br><span class="hljs-keyword">if</span> (dis[u] + w &lt; dis[v]) &#123;<br>flag = <span class="hljs-literal">false</span>;<br>dis[v] = dis[u] + w;<br><span class="hljs-keyword">if</span> (i == n - <span class="hljs-number">1</span>)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span> (flag)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>最短路</category>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模版 - bfs倒水问题</title>
+    <link href="/2024/03/11/muban-bfs-daoshui/"/>
+    <url>/2024/03/11/muban-bfs-daoshui/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span> &#123;<br><span class="hljs-type">int</span> x, y, step;<br>&#125;;<br>queue&lt;node&gt; q;<br>node lu[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>], ans[<span class="hljs-number">101</span>];<br><span class="hljs-type">int</span> n, m, sx, sy, ex, ey;<br><span class="hljs-type">int</span> mp[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> vis[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;;<br><span class="hljs-type">int</span> dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span> </span>&#123;<br>node a = &#123;sx, sy, <span class="hljs-number">0</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(a);<br>vis[sx][sy] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">empty</span>() != <span class="hljs-number">1</span>) &#123;<br>node f = q.<span class="hljs-built_in">front</span>();<br><span class="hljs-comment">//cout &lt;&lt; f.x &lt;&lt; &quot; &quot; &lt;&lt; f.y &lt;&lt; &quot; &quot; &lt;&lt; f.step &lt;&lt; endl;</span><br><span class="hljs-keyword">if</span> (f.x == ex &amp;&amp; f.y == ey) &#123;<br>cout &lt;&lt; f.step &lt;&lt; endl;<br>ans[f.step] = f;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f.step - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>ans[i] = lu[ans[i + <span class="hljs-number">1</span>].x][ans[i + <span class="hljs-number">1</span>].y];<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= f.step; i++) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; ans[i].x &lt;&lt; <span class="hljs-string">&quot;,&quot;</span> &lt;&lt; ans[i].y &lt;&lt; <span class="hljs-string">&quot;) &quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br><span class="hljs-type">int</span> nx = f.x + dx[i];<br><span class="hljs-type">int</span> ny = f.y + dy[i];<br><span class="hljs-keyword">if</span> (nx &gt;= <span class="hljs-number">1</span> &amp;&amp; nx &lt;= n &amp;&amp; ny &gt;= <span class="hljs-number">1</span> &amp;&amp; ny &lt;= m &amp;&amp; mp[nx][ny] == <span class="hljs-number">1</span> &amp;&amp; vis[nx][ny] == <span class="hljs-number">0</span>) &#123;<br>vis[nx][ny] = <span class="hljs-number">1</span>;<br>lu[nx][ny] = f;<br>node r = &#123;nx, ny, f.step + <span class="hljs-number">1</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(r);<br>&#125;<br>&#125;<br>q.<span class="hljs-built_in">pop</span>();<br>&#125;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>cin &gt;&gt; n &gt;&gt; m;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>cin &gt;&gt; mp[i][j];<br>&#125;<br>&#125;<br>cin &gt;&gt; sx &gt;&gt; sy &gt;&gt; ex &gt;&gt; ey;<br><span class="hljs-keyword">if</span> (mp[sx][sy] == <span class="hljs-number">2</span> || mp[ex][ey] == <span class="hljs-number">2</span>) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-built_in">bfs</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>bfs</category>
+      
+      <category>前缀和</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - Dijkstra</title>
+    <link href="/2024/03/11/muban-dijkstra/"/>
+    <url>/2024/03/11/muban-dijkstra/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dijkstra</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        dis[i] = g[st][i];<br>    &#125;<br>    vis[st] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-type">int</span> minn = <span class="hljs-number">2147483647</span>;<br>        <span class="hljs-type">int</span> mid = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; minn &gt; dis[j])&#123;<br>                minn = dis[j];<br>                mid = j;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; dis[j] &gt; dis[mid] + g[mid][j])&#123;<br>                dis[j] = dis[mid] + g[mid][j];<br>            &#125;<br>        &#125;<br>        vis[mid] = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="堆优化"><a href="#堆优化" class="headerlink" title="堆优化"></a>堆优化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">dij</span><span class="hljs-params">(<span class="hljs-type">int</span> S, <span class="hljs-type">int</span> *d)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) d[i] = inf, v[i] = <span class="hljs-number">0</span>;<br>    d[S] = <span class="hljs-number">0</span>, q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">mp</span>(<span class="hljs-number">0</span>, S));<br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>()) &#123;<br>        <span class="hljs-type">int</span> x = q.<span class="hljs-built_in">top</span>().se;<br>        q.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-keyword">if</span> (v[x]) <span class="hljs-keyword">continue</span>;<br>        v[x] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (pi o : e[x]) &#123;<br>            <span class="hljs-type">int</span> y = o.fi, z = o.se;<br>            <span class="hljs-keyword">if</span> (d[y] &gt; d[x] + z)<br>                d[y] = d[x] + z, q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">mp</span>(-d[y], y));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>最短路</category>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - SPFA</title>
+    <link href="/2024/03/11/muban-spfa/"/>
+    <url>/2024/03/11/muban-spfa/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> N 100010</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span>&#123;<br><span class="hljs-type">int</span> u, v, w;<br>&#125;e[N];<br><span class="hljs-type">int</span> cnt, f[N], dis[N], vis[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span></span>&#123;<br>e[++cnt] = &#123;f[u], v, w&#125;;<br>f[u] = cnt;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SPFA</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span></span>&#123;<br>queue &lt;<span class="hljs-type">int</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(s);<br>dis[s] = <span class="hljs-number">0</span>;<br>vis[s] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())&#123;<br><span class="hljs-type">int</span> t = q.<span class="hljs-built_in">front</span>();<br>q.<span class="hljs-built_in">pop</span>();<br>vis[t] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = f[t]; i; i = e[i].u)&#123;<br><span class="hljs-type">int</span> v = e[i].v;<br><span class="hljs-keyword">if</span>(dis[v] &gt; dis[t] + e[i].w)&#123;<br>dis[v] = dis[t] + e[i].w;<br><span class="hljs-keyword">if</span>(!vis[v])&#123;<br>vis[v] = <span class="hljs-number">1</span>;<br>q.<span class="hljs-built_in">push</span>(v);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> n, m, x, y, z;<br>cin &gt;&gt; n &gt;&gt; m;<br><span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(vis));<br><span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(f));<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">0x3f</span>, <span class="hljs-built_in">sizeof</span>(dis));<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++)&#123;<br>cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;<br><span class="hljs-built_in">add</span>(x, y, z);<br>&#125;<br><span class="hljs-built_in">SPFA</span>(<span class="hljs-number">1</span>);<br>cout &lt;&lt; dis[n] &lt;&lt; endl;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>最短路</category>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>学习笔记 - 最短路算法介绍</title>
+    <link href="/2024/03/11/xuexibiji-zuiduanlujieshao/"/>
+    <url>/2024/03/11/xuexibiji-zuiduanlujieshao/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/3ebb137d033144b29d659afcd879415e.png"></p><p>1、floyd算法：<br>图中一个顶点到另一个顶点的路径认为有两种，第一种是直接连接，即从起始点连接到终点，路径长度为a [ i ] [ j ]；第二种是间接连接，即通过中间点k将两者连接起来,路径长度为a [ i ] [ k ] + a [ k ] [ j ] 。而Floyd算法的任务即是比较这两种路径，选择出长度较短的路径。</p><p>2、dijkstra算法：单源最短路径<br>如题中的边带有负权值，则dijkstra算法并不适用。</p><p>3、spfa算法：<br>spfa算法与bfs算法类似。用dis数组记录源点到有向图上任意一点距离，其中源点到自身距离为0，到其他点距离为INF。将源点入队，并重复以下步骤：  </p><ol><li>队首x出队，并将该点标记为没有访问过，方便下次入队  </li><li>遍历所有以队首为起点的有向边(x,i)，更新dis[i]  </li><li>如果点i不在队列中，则i入队并标记已访问  </li><li>若队列为空，跳出循环；否则执行1</li></ol><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/27a2be3389484550a7d0550f49623291.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>最短路</category>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>初赛 - 取值范围</title>
+    <link href="/2024/03/11/knowledge-quzhi/"/>
+    <url>/2024/03/11/knowledge-quzhi/</url>
+    
+    <content type="html"><![CDATA[<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>整型：int, long long<br>浮点型: float, double<br>字符型：char<br>布尔型：bool</p><h3 id="取值范围"><a href="#取值范围" class="headerlink" title="取值范围"></a>取值范围</h3><p>unsigned int $0$ ~ $4294967295$<br>unsigned long long 的最大值：$1844674407370955161$<br>int $-2147483648$ ~ $2147483647$<br>long long：$-9223372036854775808$ ~ $9223372036854775807$ </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>csp初赛</category>
+      
+      <category>C++基础知识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>基础知识</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 2n皇后</title>
+    <link href="/2024/03/11/muban-2nhuanghou/"/>
+    <url>/2024/03/11/muban-2nhuanghou/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> n;<br><span class="hljs-type">int</span> mp[<span class="hljs-number">20</span>][<span class="hljs-number">20</span>];<br><span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> vis[<span class="hljs-number">20</span>][<span class="hljs-number">20</span>];<br><span class="hljs-type">int</span> a1[<span class="hljs-number">20</span>], b1[<span class="hljs-number">20</span>], c1[<span class="hljs-number">20</span>], d1[<span class="hljs-number">20</span>], a2[<span class="hljs-number">20</span>], b2[<span class="hljs-number">20</span>], c2[<span class="hljs-number">20</span>], d2[<span class="hljs-number">20</span>];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br><span class="hljs-keyword">if</span>(x == n + <span class="hljs-number">1</span>)&#123;<br>ans ++;<br><span class="hljs-keyword">return</span> ;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> y = <span class="hljs-number">1</span>; y &lt;= n; y ++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> y2 = <span class="hljs-number">1</span>; y2 &lt;= n; y2 ++)&#123;<br><span class="hljs-keyword">if</span>(a1[x] == <span class="hljs-number">0</span> &amp;&amp; b1[y] == <span class="hljs-number">0</span> &amp;&amp; c1[x + y] == <span class="hljs-number">0</span> &amp;&amp; d1[x - y + n] == <span class="hljs-number">0</span> &amp;&amp; a2[x] == <span class="hljs-number">0</span> &amp;&amp; b2[y2] == <span class="hljs-number">0</span> &amp;&amp; c2[x + y2] == <span class="hljs-number">0</span> &amp;&amp; d2[x - y2 + n] == <span class="hljs-number">0</span> &amp;&amp; y != y2 &amp;&amp; mp[x][y] == <span class="hljs-number">1</span> &amp;&amp; mp[x][y2] == <span class="hljs-number">1</span>)&#123;<br>a1[x] = b1[y] = c1[x + y] = d1[x - y + n] = a2[x] = b2[y2] = c2[x + y2] = d2[x - y2 + n] = <span class="hljs-number">1</span>;<br><span class="hljs-built_in">dfs</span>(x + <span class="hljs-number">1</span>);<br>a1[x] = b1[y] = c1[x + y] = d1[x - y + n] = a2[x] = b2[y2] = c2[x + y2] = d2[x - y2 + n] = <span class="hljs-number">0</span>;<br>&#125; <br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin &gt;&gt; n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j ++)&#123;<br>cin &gt;&gt; mp[i][j];<br>&#125;<br>&#125;<br><span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>);<br>cout &lt;&lt; ans;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>dfs</category>
+      
+      <category>皇后问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模版 - bfs最短路径</title>
+    <link href="/2024/03/11/muban-bfszuiduanlujing/"/>
+    <url>/2024/03/11/muban-bfszuiduanlujing/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span> &#123;<br><span class="hljs-type">int</span> x, y, step;<br>&#125;;<br>queue&lt;node&gt; q;<br>node lu[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>], ans[<span class="hljs-number">101</span>];<br><span class="hljs-type">int</span> n, m, sx, sy, ex, ey;<br><span class="hljs-type">int</span> mp[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> vis[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;;<br><span class="hljs-type">int</span> dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span> </span>&#123;<br>node a = &#123;sx, sy, <span class="hljs-number">0</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(a);<br>vis[sx][sy] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">empty</span>() != <span class="hljs-number">1</span>) &#123;<br>node f = q.<span class="hljs-built_in">front</span>();<br><span class="hljs-comment">//cout &lt;&lt; f.x &lt;&lt; &quot; &quot; &lt;&lt; f.y &lt;&lt; &quot; &quot; &lt;&lt; f.step &lt;&lt; endl;</span><br><span class="hljs-keyword">if</span> (f.x == ex &amp;&amp; f.y == ey) &#123;<br>cout &lt;&lt; f.step &lt;&lt; endl;<br>ans[f.step] = f;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f.step - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>ans[i] = lu[ans[i + <span class="hljs-number">1</span>].x][ans[i + <span class="hljs-number">1</span>].y];<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= f.step; i++) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; ans[i].x &lt;&lt; <span class="hljs-string">&quot;,&quot;</span> &lt;&lt; ans[i].y &lt;&lt; <span class="hljs-string">&quot;) &quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br><span class="hljs-type">int</span> nx = f.x + dx[i];<br><span class="hljs-type">int</span> ny = f.y + dy[i];<br><span class="hljs-keyword">if</span> (nx &gt;= <span class="hljs-number">1</span> &amp;&amp; nx &lt;= n &amp;&amp; ny &gt;= <span class="hljs-number">1</span> &amp;&amp; ny &lt;= m &amp;&amp; mp[nx][ny] == <span class="hljs-number">1</span> &amp;&amp; vis[nx][ny] == <span class="hljs-number">0</span>) &#123;<br>vis[nx][ny] = <span class="hljs-number">1</span>;<br>lu[nx][ny] = f;<br>node r = &#123;nx, ny, f.step + <span class="hljs-number">1</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(r);<br>&#125;<br>&#125;<br>q.<span class="hljs-built_in">pop</span>();<br>&#125;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>cin &gt;&gt; n &gt;&gt; m;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>cin &gt;&gt; mp[i][j];<br>&#125;<br>&#125;<br>cin &gt;&gt; sx &gt;&gt; sy &gt;&gt; ex &gt;&gt; ey;<br><span class="hljs-keyword">if</span> (mp[sx][sy] == <span class="hljs-number">2</span> || mp[ex][ey] == <span class="hljs-number">2</span>) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-built_in">bfs</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>bfs</category>
+      
+      <category>最短路</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - K个皇后攻击范围</title>
+    <link href="/2024/03/11/muban-khuanhousj/"/>
+    <url>/2024/03/11/muban-khuanhousj/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> k, n, visR[<span class="hljs-number">200</span>], visC[<span class="hljs-number">200</span>], visLD[<span class="hljs-number">200</span>], visRD[<span class="hljs-number">200</span>], ans = <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i ++)  &#123;<br>        <span class="hljs-type">int</span> x, y;<br>        cin &gt;&gt; x &gt;&gt; y;<br>        visR[x] = visC[y] = visLD[x - y + n] = visRD[x + y] = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++) &#123;<br>        <span class="hljs-keyword">if</span> (visR[i] == <span class="hljs-number">1</span>) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j ++) &#123;<br>            <span class="hljs-keyword">if</span>(!visC[j] &amp;&amp; !visLD[i - j + n] &amp;&amp; !visRD[i + j])&#123;<br>                ans ++;<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; n*n - ans;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>dfs</category>
+      
+      <category>皇后问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模版 - 栈、队列stl</title>
+    <link href="/2024/03/11/muban-zhan-duiliestl/"/>
+    <url>/2024/03/11/muban-zhan-duiliestl/</url>
+    
+    <content type="html"><![CDATA[<h3 id="队列STL"><a href="#队列STL" class="headerlink" title="队列STL"></a>队列STL</h3><p>queue<int> q;<br>q.push(x);&#x2F;&#x2F;进队列<br>q.pop();&#x2F;&#x2F;队首出队<br>q.front();&#x2F;&#x2F;返回队首元素<br>q.back();&#x2F;&#x2F;返回队尾元素<br>q.empty();&#x2F;&#x2F;判断队列是否为空<br>q.size();&#x2F;&#x2F;返回队列的大小</p><p>deque<int> dq;<br>dq.push_front(x);&#x2F;&#x2F;进队<br>dq.pop_front();&#x2F;&#x2F;出队<br>dq.push_back();<br>dq.pop_back();<br>dq.empty();&#x2F;&#x2F;判断队列是否为空<br>dq.size();&#x2F;&#x2F;返回队列的大小</p><h3 id="栈STL"><a href="#栈STL" class="headerlink" title="栈STL"></a>栈STL</h3><p>stack<int> s;<br>s.push(x);&#x2F;&#x2F;压入元素<br>s.pop();&#x2F;&#x2F;弹出栈顶元素<br>s.top();&#x2F;&#x2F;返回栈顶元素<br>s.empty();&#x2F;&#x2F;判断栈是否为空<br>s.size();&#x2F;&#x2F;返回栈的大小</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>栈问题</category>
+      
+      <category>队列</category>
+      
+      <category>stl</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 快排</title>
+    <link href="/2024/03/11/muban-kuaipai/"/>
+    <url>/2024/03/11/muban-kuaipai/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> a[<span class="hljs-number">10</span>];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">qsort</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br><span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br><span class="hljs-type">int</span> x = a[l], i = l, j = r;<br><span class="hljs-keyword">while</span> (i &lt; j) &#123;<br><span class="hljs-keyword">while</span> (i &lt; j &amp;&amp; a[j] &gt;= x)j--;<br>a[i] = a[j];<br><span class="hljs-keyword">while</span> (i &lt; j &amp;&amp; a[i] &lt;= x)i++;<br>a[j] = a[i];<br>&#125;<br>a[i] = x;<br>cout&lt;&lt;a[i]&lt;&lt;<span class="hljs-string">&#x27; &#x27;</span>;<br><span class="hljs-built_in">qsort</span>(l, i - <span class="hljs-number">1</span>);<br><span class="hljs-built_in">qsort</span>(i + <span class="hljs-number">1</span>, r);<br><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">6</span>; i++) cin&gt;&gt;a[i];<br><span class="hljs-built_in">qsort</span>(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">6</span>; i++) &#123;<br>cout &lt;&lt; a[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>排序</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>学习笔记 - 树上常用算法</title>
     <link href="/2024/02/15/xuexibiji-tree/"/>
     <url>/2024/02/15/xuexibiji-tree/</url>
