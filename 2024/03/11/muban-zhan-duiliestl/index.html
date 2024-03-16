@@ -16,15 +16,15 @@
   <meta name="author" content="MhxMa">
   <meta name="keywords" content="">
   
-    <meta name="description" content="队列STLqueue q;q.push(x);&#x2F;&#x2F;进队列q.pop();&#x2F;&#x2F;队首出队q.front();&#x2F;&#x2F;返回队首元素q.back();&#x2F;&#x2F;返回队尾元素q.empty();&#x2F;&#x2F;判断队列是否为空q.size();&#x2F;&#x2F;返回队列的大小 deque dq;dq.push_front(x">
+    <meta name="description" content="队列STL1234567queue&lt;int&gt; q;q.push(x); &#x2F;&#x2F;进队列q.pop(); &#x2F;&#x2F;队首出队q.front(); &#x2F;&#x2F;返回队首元素q.back(); &#x2F;&#x2F;返回队尾元素q.empty(); &#x2F;&#x2F;判断队列是否为空q.size(); &#x2F;&#x2F;返回队列的大小  1234567deque&lt;int&gt; dq;dq.push_front(x); &#x2F;&#x2F;进队dq.pop_fro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模版 - 栈、队列stl">
 <meta property="og:url" content="http://example.com/2024/03/11/muban-zhan-duiliestl/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="队列STLqueue q;q.push(x);&#x2F;&#x2F;进队列q.pop();&#x2F;&#x2F;队首出队q.front();&#x2F;&#x2F;返回队首元素q.back();&#x2F;&#x2F;返回队尾元素q.empty();&#x2F;&#x2F;判断队列是否为空q.size();&#x2F;&#x2F;返回队列的大小 deque dq;dq.push_front(x">
+<meta property="og:description" content="队列STL1234567queue&lt;int&gt; q;q.push(x); &#x2F;&#x2F;进队列q.pop(); &#x2F;&#x2F;队首出队q.front(); &#x2F;&#x2F;返回队首元素q.back(); &#x2F;&#x2F;返回队尾元素q.empty(); &#x2F;&#x2F;判断队列是否为空q.size(); &#x2F;&#x2F;返回队列的大小  1234567deque&lt;int&gt; dq;dq.push_front(x); &#x2F;&#x2F;进队dq.pop_fro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-11T13:46:07.000Z">
-<meta property="article:modified_time" content="2024-03-11T13:53:42.000Z">
+<meta property="article:modified_time" content="2024-03-16T11:03:22.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="模板">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"C++"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -293,7 +293,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-03-11T21:53:42+08:00
+                    本文最后更新于 2024-03-16T19:03:22+08:00
                   
                   
 
@@ -303,10 +303,11 @@
             
               <div class="markdown-body">
                 
-                <h3 id="队列STL"><a href="#队列STL" class="headerlink" title="队列STL"></a>队列STL</h3><p>queue<int> q;<br>q.push(x);&#x2F;&#x2F;进队列<br>q.pop();&#x2F;&#x2F;队首出队<br>q.front();&#x2F;&#x2F;返回队首元素<br>q.back();&#x2F;&#x2F;返回队尾元素<br>q.empty();&#x2F;&#x2F;判断队列是否为空<br>q.size();&#x2F;&#x2F;返回队列的大小</p>
-<p>deque<int> dq;<br>dq.push_front(x);&#x2F;&#x2F;进队<br>dq.pop_front();&#x2F;&#x2F;出队<br>dq.push_back();<br>dq.pop_back();<br>dq.empty();&#x2F;&#x2F;判断队列是否为空<br>dq.size();&#x2F;&#x2F;返回队列的大小</p>
-<h3 id="栈STL"><a href="#栈STL" class="headerlink" title="栈STL"></a>栈STL</h3><p>stack<int> s;<br>s.push(x);&#x2F;&#x2F;压入元素<br>s.pop();&#x2F;&#x2F;弹出栈顶元素<br>s.top();&#x2F;&#x2F;返回栈顶元素<br>s.empty();&#x2F;&#x2F;判断栈是否为空<br>s.size();&#x2F;&#x2F;返回栈的大小</p>
+                <h3 id="队列STL"><a href="#队列STL" class="headerlink" title="队列STL"></a>队列STL</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp">queue&lt;<span class="hljs-type">int</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(x); <span class="hljs-comment">//进队列</span><br>q.<span class="hljs-built_in">pop</span>(); <span class="hljs-comment">//队首出队</span><br>q.<span class="hljs-built_in">front</span>(); <span class="hljs-comment">//返回队首元素</span><br>q.<span class="hljs-built_in">back</span>(); <span class="hljs-comment">//返回队尾元素</span><br>q.<span class="hljs-built_in">empty</span>(); <span class="hljs-comment">//判断队列是否为空</span><br>q.<span class="hljs-built_in">size</span>(); <span class="hljs-comment">//返回队列的大小</span><br></code></pre></td></tr></table></figure>
 
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp">deque&lt;<span class="hljs-type">int</span>&gt; dq;<br>dq.<span class="hljs-built_in">push_front</span>(x); <span class="hljs-comment">//进队</span><br>dq.<span class="hljs-built_in">pop_front</span>(); <span class="hljs-comment">//出队</span><br>dq.<span class="hljs-built_in">push_back</span>();<br>dq.<span class="hljs-built_in">pop_back</span>();<br>dq.<span class="hljs-built_in">empty</span>(); <span class="hljs-comment">//判断队列是否为空</span><br>dq.<span class="hljs-built_in">size</span>(); <span class="hljs-comment">//返回队列的大小</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="栈STL"><a href="#栈STL" class="headerlink" title="栈STL"></a>栈STL</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">stack&lt;<span class="hljs-type">int</span>&gt; s;<br>s.<span class="hljs-built_in">push</span>(x);<span class="hljs-comment">//压入元素</span><br>s.<span class="hljs-built_in">pop</span>();<span class="hljs-comment">//弹出栈顶元素</span><br>s.<span class="hljs-built_in">top</span>();<span class="hljs-comment">//返回栈顶元素</span><br>s.<span class="hljs-built_in">empty</span>();<span class="hljs-comment">//判断栈是否为空</span><br>s.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//返回栈的大小</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -494,7 +495,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <a href="https://www.luogu.com.cn/user/857786" target="_blank" rel="nofollow noopener"><span>MhxMa</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
   
