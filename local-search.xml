@@ -101,9 +101,9 @@
     
     <tags>
       
-      <tag>贪心</tag>
-      
       <tag>CF</tag>
+      
+      <tag>贪心</tag>
       
     </tags>
     
@@ -153,13 +153,13 @@
     
     <tags>
       
-      <tag>dp</tag>
+      <tag>CF</tag>
       
       <tag>贪心</tag>
       
-      <tag>模拟</tag>
+      <tag>dp</tag>
       
-      <tag>CF</tag>
+      <tag>模拟</tag>
       
     </tags>
     
@@ -195,31 +195,6 @@
   
   
   <entry>
-    <title>模板 - 状态压缩</title>
-    <link href="/2024/03/11/muban-zhuangya/"/>
-    <url>/2024/03/11/muban-zhuangya/</url>
-    
-    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/44612da218524149bcb995e06d0b3cbf.png"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>状态压缩</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>模板</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>题解 - CF1882B Fear of the Dark</title>
     <link href="/2024/03/11/tijie-CF1882B/"/>
     <url>/2024/03/11/tijie-CF1882B/</url>
@@ -236,6 +211,31 @@
       <category>数学</category>
       
       <category>数学几何</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模板</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 状态压缩</title>
+    <link href="/2024/03/11/muban-zhuangya/"/>
+    <url>/2024/03/11/muban-zhuangya/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/44612da218524149bcb995e06d0b3cbf.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>状态压缩</category>
       
     </categories>
     
