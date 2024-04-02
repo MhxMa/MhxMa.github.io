@@ -23,11 +23,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="12345678910111213141516171819202122void Dijkstra()&#123;    for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;        dis[i] &#x3D; g[st][i];    &#125;    vis[st] &#x3D; 1;    for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;        int">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/f293379d162c43eabdaeb19621830e98.png">
 <meta property="article:published_time" content="2024-03-11T13:56:41.000Z">
-<meta property="article:modified_time" content="2024-03-11T14:18:06.000Z">
+<meta property="article:modified_time" content="2024-04-02T11:34:34.000Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="模板">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="最短路">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/f293379d162c43eabdaeb19621830e98.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -233,7 +236,7 @@
         
         
         
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -283,7 +286,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-03-11T22:18:06+08:00
+                    本文最后更新于 2024-04-02T19:34:34+08:00
                   
                   
 
@@ -295,7 +298,10 @@
                 
                 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dijkstra</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        dis[i] = g[st][i];<br>    &#125;<br>    vis[st] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-type">int</span> minn = <span class="hljs-number">2147483647</span>;<br>        <span class="hljs-type">int</span> mid = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; minn &gt; dis[j])&#123;<br>                minn = dis[j];<br>                mid = j;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; dis[j] &gt; dis[mid] + g[mid][j])&#123;<br>                dis[j] = dis[mid] + g[mid][j];<br>            &#125;<br>        &#125;<br>        vis[mid] = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="堆优化"><a href="#堆优化" class="headerlink" title="堆优化"></a>堆优化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">dij</span><span class="hljs-params">(<span class="hljs-type">int</span> S, <span class="hljs-type">int</span> *d)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) d[i] = inf, v[i] = <span class="hljs-number">0</span>;<br>    d[S] = <span class="hljs-number">0</span>, q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">mp</span>(<span class="hljs-number">0</span>, S));<br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>()) &#123;<br>        <span class="hljs-type">int</span> x = q.<span class="hljs-built_in">top</span>().se;<br>        q.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-keyword">if</span> (v[x]) <span class="hljs-keyword">continue</span>;<br>        v[x] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (pi o : e[x]) &#123;<br>            <span class="hljs-type">int</span> y = o.fi, z = o.se;<br>            <span class="hljs-keyword">if</span> (d[y] &gt; d[x] + z)<br>                d[y] = d[x] + z, q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">mp</span>(-d[y], y));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="堆优化"><a href="#堆优化" class="headerlink" title="堆优化"></a>堆优化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//Dijkstra堆优化算法模板</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">2e5</span>+<span class="hljs-number">5</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> M = <span class="hljs-number">1e6</span>+<span class="hljs-number">5</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-type">int</span> n,m;<br><span class="hljs-type">int</span> a,b,c;<br><span class="hljs-type">int</span> tot = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span><br>&#123;<br>	<span class="hljs-type">int</span> v,w,next;<br>&#125;edge[M];<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span><br>&#123;<br>	<span class="hljs-type">int</span> dis,idx;<br>	<span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-type">const</span> Node &amp;tmp) <span class="hljs-type">const</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> tmp.dis&lt;dis;<br>	&#125;<br>&#125;;<br>priority_queue &lt;Node&gt; q; <br><span class="hljs-type">int</span> dist[N],head[N];<br><span class="hljs-type">bool</span> vis[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u,<span class="hljs-type">int</span> v,<span class="hljs-type">int</span> w)</span></span><br><span class="hljs-function"></span>&#123;<br>	edge[++tot].v = v;<br>	edge[tot].w = w;<br>	edge[tot].next = head[u];<br>	head[u] = tot;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	dist[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>	vis[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>	q.<span class="hljs-built_in">push</span>(&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;);<br>	<span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())<br>	&#123;<br>		Node tmp = q.<span class="hljs-built_in">top</span>();<br>		q.<span class="hljs-built_in">pop</span>();<br>		vis[tmp.idx] = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = head[tmp.idx];i!=<span class="hljs-number">-1</span>;i = edge[i].next)<br>		&#123;<br>			<span class="hljs-keyword">if</span>(dist[tmp.idx]+edge[i].w &lt; dist[edge[i].v])<br>			&#123;<br>				dist[edge[i].v] = dist[tmp.idx]+edge[i].w;<br>				<span class="hljs-keyword">if</span>(!vis[edge[i].v])<br>				&#123;<br>					vis[edge[i].v] = <span class="hljs-number">1</span>;<br>					q.<span class="hljs-built_in">push</span>(&#123;dist[edge[i].v],edge[i].v&#125;);<br>				&#125;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) head[i] = <span class="hljs-number">-1</span>,dist[i] = inf;<br>	<span class="hljs-keyword">while</span>(m--)<br>	&#123;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c);<br>		<span class="hljs-built_in">add</span>(a,b,c);<br>	&#125;<br>	<span class="hljs-built_in">dijkstra</span>();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(dist[i]==inf) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;-32767 &quot;</span>);<br>        <span class="hljs-keyword">else</span> <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,dist[i]);<br>    &#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="负权图无法用迪杰斯特拉的原因"><a href="#负权图无法用迪杰斯特拉的原因" class="headerlink" title="负权图无法用迪杰斯特拉的原因"></a>负权图无法用迪杰斯特拉的原因</h3><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/f293379d162c43eabdaeb19621830e98.png" srcset="/img/loading.gif" lazyload></p>
+
                 
               </div>
             
@@ -313,12 +319,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="category-chain-item">最短路</a>
+  <a href="/categories/%E6%A8%A1%E6%9D%BF/" class="category-chain-item">模板</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%9C%80%E7%9F%AD%E8%B7%AF/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  <a href="/categories/%E6%A8%A1%E6%9D%BF/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
   
   
 
@@ -335,7 +341,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%A8%A1%E6%9D%BF/" class="print-no-link">#模板</a>
+        <a href="/tags/%E5%9B%BE%E8%AE%BA/" class="print-no-link">#图论</a>
+      
+        <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="print-no-link">#最短路</a>
       
     </div>
   

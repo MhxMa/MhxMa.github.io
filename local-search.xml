@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>WT2024 04 S组备赛 训练作业</title>
+    <link href="/2024/04/02/WT202404-homework/"/>
+    <url>/2024/04/02/WT202404-homework/</url>
+    
+    <content type="html"><![CDATA[<h2 id="WT2024-04-S组备赛-Part1"><a href="#WT2024-04-S组备赛-Part1" class="headerlink" title="WT2024 04 S组备赛 Part1"></a><a href="https://www.luogu.com.cn/training/493121">WT2024 04 S组备赛 Part1</a></h2><h3 id="基本图"><a href="#基本图" class="headerlink" title="基本图"></a>基本图</h3><ul><li><a href="https://www.luogu.com.cn/problem/P5318">P5318 【深基18.例3】查找文献</a></li><li><a href="https://www.luogu.com.cn/problem/P2853">P2853 [USACO06DEC] Cow Picnic S</a></li><li><a href="https://www.luogu.com.cn/problem/P1363">P1363 幻象迷宫</a></li><li><a href="https://www.luogu.com.cn/problem/P1347">P1347 排序</a></li><li><a href="https://www.luogu.com.cn/problem/P1127">P1127 词链</a></li></ul><hr><h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><ul><li><a href="https://www.luogu.com.cn/problem/B3647">B3647 【模板】Floyd</a></li><li><a href="https://www.luogu.com.cn/problem/P3371">P3371 【模板】单源最短路径（弱化版）</a></li><li><a href="https://www.luogu.com.cn/problem/P4779">P4779 【模板】单源最短路径（标准版）</a></li><li><a href="https://www.luogu.com.cn/problem/P3385">P3385 【模板】负环</a></li><li><a href="https://www.luogu.com.cn/problem/P6175">P6175 无向图的最小环问题</a></li><li><a href="https://www.luogu.com.cn/problem/P5651">P5651 基础最短路练习题</a></li><li><a href="https://www.luogu.com.cn/problem/P2910">P2910 [USACO08OPEN] Clear And Present Danger S</a></li><li><a href="https://www.luogu.com.cn/problem/P6464">P6464 [传智杯 #2 决赛] 传送门</a></li><li><a href="https://www.luogu.com.cn/problem/P1037">P1037 [NOIP2002 普及组] 产生数</a></li><li><a href="https://www.luogu.com.cn/problem/P2419">P2419 [USACO08JAN] Cow Contest S</a></li><li><a href="https://www.luogu.com.cn/problem/P10110">P10110 [GESP202312 七级] 商品交易</a></li><li><a href="https://www.luogu.com.cn/problem/B3601">B3601 [图论与代数结构 201] 最短路问题_1</a></li><li><a href="https://www.luogu.com.cn/problem/B3602">B3602 [图论与代数结构 202] 最短路问题_2</a></li><li><a href="https://www.luogu.com.cn/problem/P1144">P1144 最短路计数</a></li><li><a href="https://www.luogu.com.cn/problem/P1462">P1462 通往奥格瑞玛的道路</a></li><li><a href="https://www.luogu.com.cn/problem/P1073">P1073 [NOIP2009 提高组] 最优贸易</a></li><li><a href="https://www.luogu.com.cn/problem/P1993">P1993 小 K 的农场</a></li><li><a href="https://www.luogu.com.cn/problem/P1119">P1119 灾后重建</a></li><li><a href="https://www.luogu.com.cn/problem/P2047">P2047 [NOI2007] 社交网络</a></li><li><a href="https://www.luogu.com.cn/problem/P1027">P1027 [NOIP2001 提高组] Car 的旅行路线</a></li><li><a href="https://www.luogu.com.cn/problem/P1078">P1078 [NOIP2012 普及组] 文化之旅</a></li><li><a href="https://www.luogu.com.cn/problem/P5905">P5905 【模板】全源最短路（Johnson）</a></li><li><a href="https://www.luogu.com.cn/problem/P4568">P4568 [JLOI2011] 飞行路线</a></li><li><a href="https://www.luogu.com.cn/problem/P2865">P2865 [USACO06NOV] Roadblocks G</a></li><li><a href="https://www.luogu.com.cn/problem/P1875">P1875 佳佳的魔法药水</a></li><li><a href="https://www.luogu.com.cn/problem/P3403">P3403 跳楼机</a></li><li><a href="https://www.luogu.com.cn/problem/P1099">P1099 [NOIP2007 提高组] 树网的核</a></li><li><a href="https://www.luogu.com.cn/problem/P3008">P3008 [USACO11JAN] Roads and Planes G</a></li><li><a href="https://www.luogu.com.cn/problem/P4366">P4366 [Code+#4] 最短路</a></li><li><a href="https://www.luogu.com.cn/problem/P4467">P4467 [SCOI2007] k短路</a></li><li><a href="https://www.luogu.com.cn/problem/P4042">P4042 [AHOI2014&#x2F;JSOI2014] 骑士游戏</a></li><li><a href="https://www.luogu.com.cn/problem/P2483">P2483 【模板】k 短路 &#x2F; [SDOI2010] 魔法猪学院</a></li></ul><hr><h3 id="最小树"><a href="#最小树" class="headerlink" title="最小树"></a>最小树</h3><ul><li><a href="https://www.luogu.com.cn/problem/P3366">P3366 【模板】最小生成树</a></li><li><a href="https://www.luogu.com.cn/problem/P1194">P1194 买礼物</a></li><li><a href="https://www.luogu.com.cn/problem/P1396">P1396 营救</a></li><li><a href="https://www.luogu.com.cn/problem/P1195">P1195 口袋的天空</a></li><li><a href="https://www.luogu.com.cn/problem/P1550">P1550 [USACO08OCT] Watering Hole G</a></li><li><a href="https://www.luogu.com.cn/problem/P2330">P2330 [SCOI2005] 繁忙的都市</a></li><li><a href="https://www.luogu.com.cn/problem/P2916">P2916 [USACO08NOV] Cheering up the Cow G</a></li><li><a href="https://www.luogu.com.cn/problem/CF1245D">CF1245D Shichikuji and Power Grid</a></li><li><a href="https://www.luogu.com.cn/problem/P4047">P4047 [JSOI2010] 部落划分</a></li><li><a href="https://www.luogu.com.cn/problem/P4180">P4180 [BJWC2010] 严格次小生成树</a></li><li><a href="https://www.luogu.com.cn/problem/P3104">P3104 [USACO14MAR] Counting Friends G</a></li><li><a href="https://www.luogu.com.cn/problem/CF1120D">CF1120D Power Tree</a></li><li><a href="https://www.luogu.com.cn/problem/P3623">P3623 [APIO2008] 免费道路</a></li></ul><h2 id="WT2024-04-S组备赛-Part2"><a href="#WT2024-04-S组备赛-Part2" class="headerlink" title="WT2024 04 S组备赛 Part2"></a><a href="https://www.luogu.com.cn/training/493125">WT2024 04 S组备赛 Part2</a></h2><h3 id="kruskal重构树"><a href="#kruskal重构树" class="headerlink" title="kruskal重构树"></a>kruskal重构树</h3><ul><li><a href="https://www.luogu.com.cn/problem/P9638">P9638 「yyOI R1」youyou 的军训</a></li><li><a href="https://www.luogu.com.cn/problem/P4768">P4768 [NOI2018] 归程</a></li></ul><hr><h3 id="哈希与哈希表"><a href="#哈希与哈希表" class="headerlink" title="哈希与哈希表"></a>哈希与哈希表</h3><ul><li><a href="https://www.luogu.com.cn/problem/P3370">P3370 【模板】字符串哈希</a></li><li><a href="https://www.luogu.com.cn/problem/P1102">P1102 A-B 数对</a></li><li><a href="https://www.luogu.com.cn/problem/P2957">P2957 [USACO09OCT] Barn Echoes G</a></li><li><a href="https://www.luogu.com.cn/problem/P4305">P4305 [JLOI2011] 不重复数字</a></li><li><a href="https://www.luogu.com.cn/problem/P7774">P7774 [COCI2009-2010#2] KUTEVI</a></li><li><a href="https://www.luogu.com.cn/problem/P1211">P1211 [USACO1.3] 牛式 Prime Cryptarithm</a></li><li><a href="https://www.luogu.com.cn/problem/P8630">P8630 [蓝桥杯 2015 国 B] 密文搜索</a></li><li><a href="https://www.luogu.com.cn/problem/P1955">P1955 [NOI2015] 程序自动分析</a></li><li><a href="https://www.luogu.com.cn/problem/P2593">P2593 [ZJOI2006] 超级麻将</a></li><li><a href="https://www.luogu.com.cn/problem/P4398">P4398 [JSOI2008] Blue Mary的战役地图</a></li></ul><hr><h3 id="连通图（强连通分量与割点和桥）"><a href="#连通图（强连通分量与割点和桥）" class="headerlink" title="连通图（强连通分量与割点和桥）"></a>连通图（强连通分量与割点和桥）</h3><ul><li><a href="https://www.luogu.com.cn/problem/P8772">P8772 [蓝桥杯 2022 省 A] 求和</a></li><li><a href="https://www.luogu.com.cn/problem/P2367">P2367 语文成绩</a></li><li><a href="https://www.luogu.com.cn/problem/P6145">P6145 [USACO20FEB] Timeline G</a></li><li><a href="https://www.luogu.com.cn/problem/P1250">P1250 种树</a></li><li><a href="https://www.luogu.com.cn/problem/P5960">P5960 【模板】差分约束</a></li><li><a href="https://www.luogu.com.cn/problem/P1260">P1260 工程规划</a></li><li><a href="https://www.luogu.com.cn/problem/P1993">P1993 小 K 的农场</a></li><li><a href="https://www.luogu.com.cn/problem/P4878">P4878 [USACO05DEC] Layout G</a></li><li><a href="https://www.luogu.com.cn/problem/P3275">P3275 [SCOI2011] 糖果</a></li><li><a href="https://www.luogu.com.cn/problem/P1656">P1656 炸铁路</a></li><li><a href="https://www.luogu.com.cn/problem/P3388">P3388 【模板】割点（割顶）</a></li><li><a href="https://www.luogu.com.cn/problem/P3387">P3387 【模板】缩点</a></li><li><a href="https://www.luogu.com.cn/problem/P8436">P8436 【模板】边双连通分量</a></li><li><a href="https://www.luogu.com.cn/problem/P8435">P8435 【模板】点双连通分量</a></li><li><a href="https://www.luogu.com.cn/problem/P2863">P2863 [USACO06JAN] The Cow Prom S</a></li><li><a href="https://www.luogu.com.cn/problem/P2002">P2002 消息扩散</a></li><li><a href="https://www.luogu.com.cn/problem/CF1000E">CF1000E We Need More Bosses</a></li><li><a href="https://www.luogu.com.cn/problem/P2341">P2341 [USACO03FALL &#x2F; HAOI2006] 受欢迎的牛 G</a></li><li><a href="https://www.luogu.com.cn/problem/P4782">P4782 【模板】2-SAT</a></li><li><a href="https://www.luogu.com.cn/problem/P2746">P2746 [USACO5.3] 校园网Network of Schools</a></li><li><a href="https://www.luogu.com.cn/problem/P2860">P2860 [USACO06JAN] Redundant Paths G</a></li><li><a href="https://www.luogu.com.cn/problem/P3469">P3469 [POI2008] BLO-Blockade</a></li><li><a href="https://www.luogu.com.cn/problem/P1262">P1262 间谍网络</a></li><li><a href="https://www.luogu.com.cn/problem/P4630">P4630 [APIO2018] 铁人两项</a></li><li><a href="https://www.luogu.com.cn/problem/P4606">P4606 [SDOI2018] 战略游戏</a></li><li><a href="https://www.luogu.com.cn/problem/CF487E">CF487E Tourists</a></li><li><a href="https://www.luogu.com.cn/problem/P5025">P5025 [SNOI2017] 炸弹</a></li><li><a href="https://www.luogu.com.cn/problem/P3825">P3825 [NOI2017] 游戏</a></li><li><a href="https://www.luogu.com.cn/problem/P4819">P4819 [中山市选] 杀人游戏</a></li><li><a href="https://www.luogu.com.cn/problem/P7737">P7737 [NOI2021] 庆典</a></li></ul><hr><h3 id="欧拉回路"><a href="#欧拉回路" class="headerlink" title="欧拉回路"></a>欧拉回路</h3><ul><li><a href="https://www.luogu.com.cn/problem/P7771">P7771 【模板】欧拉路径</a></li><li><a href="https://www.luogu.com.cn/problem/P1341">P1341 无序字母对</a></li><li><a href="https://www.luogu.com.cn/problem/P2731">P2731 [USACO3.3] 骑马修栅栏 Riding the Fences</a></li><li><a href="https://www.luogu.com.cn/problem/P7796">P7796 [COCI2014-2015#7] POLICE</a></li></ul><h2 id="WT2024-04-S组备赛-Part3"><a href="#WT2024-04-S组备赛-Part3" class="headerlink" title="WT2024 04 S组备赛 Part3"></a><a href="https://www.luogu.com.cn/training/493142">WT2024 04 S组备赛 Part3</a></h2><h3 id="树状数组与RMQ"><a href="#树状数组与RMQ" class="headerlink" title="树状数组与RMQ"></a>树状数组与RMQ</h3><ul><li><a href="https://www.luogu.com.cn/problem/P1996">P1996 约瑟夫问题</a></li><li><a href="https://www.luogu.com.cn/problem/P1774">P1774 最接近神的人</a></li><li><a href="https://www.luogu.com.cn/problem/P3374">P3374 【模板】树状数组 1</a></li><li><a href="https://www.luogu.com.cn/problem/P3368">P3368 【模板】树状数组 2</a></li><li><a href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对</a></li><li><a href="https://www.luogu.com.cn/problem/P3948">P3948 数据结构</a></li><li><a href="https://www.luogu.com.cn/problem/P5200">P5200 [USACO19JAN] Sleepy Cow Sorting G</a></li><li><a href="https://www.luogu.com.cn/problem/P5019">P5019 [NOIP2018 提高组] 铺设道路</a></li><li><a href="https://www.luogu.com.cn/problem/P2068">P2068 统计和</a></li><li><a href="https://www.luogu.com.cn/problem/P2880">P2880 [USACO07JAN] Balanced Lineup G</a></li><li><a href="https://www.luogu.com.cn/problem/P4378">P4378 [USACO18OPEN] Out of Sorts S</a></li><li><a href="https://www.luogu.com.cn/problem/P2866">P2866 [USACO06NOV] Bad Hair Day S</a></li><li><a href="https://www.luogu.com.cn/problem/P2251">P2251 质量检测</a></li><li><a href="https://www.luogu.com.cn/problem/P1440">P1440 求m区间内的最小值</a></li><li><a href="https://www.luogu.com.cn/problem/P6225">P6225 [eJOI2019] 异或橙子</a></li><li><a href="https://www.luogu.com.cn/problem/P5094">P5094 [USACO04OPEN] MooFest G 加强版</a></li><li><a href="https://www.luogu.com.cn/problem/P5057">P5057 [CQOI2006] 简单题</a></li><li><a href="https://www.luogu.com.cn/problem/P4939">P4939 Agent2</a></li><li><a href="https://www.luogu.com.cn/problem/P5677">P5677 [GZOI2017] 配对统计</a></li><li><a href="https://www.luogu.com.cn/problem/P1966">P1966 [NOIP2013 提高组] 火柴排队</a></li><li><a href="https://www.luogu.com.cn/problem/P2161">P2161 [SHOI2009] 会场预约</a></li></ul><h3 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h3><ul><li><a href="https://www.luogu.com.cn/problem/P1816">P1816 忠诚</a></li><li><a href="https://www.luogu.com.cn/problem/P3372">P3372 【模板】线段树 1</a></li><li><a href="https://www.luogu.com.cn/problem/P3870">P3870 [TJOI2009] 开关</a></li><li><a href="https://www.luogu.com.cn/problem/P1438">P1438 无聊的数列</a></li><li><a href="https://www.luogu.com.cn/problem/P1253">P1253 扶苏的问题</a></li><li><a href="https://www.luogu.com.cn/problem/P3373">P3373 【模板】线段树 2</a></li><li><a href="https://www.luogu.com.cn/problem/P6492">P6492 [COCI2010-2011#6] STEP</a></li><li><a href="https://www.luogu.com.cn/problem/P1637">P1637 三元上升子序列</a></li><li><a href="https://www.luogu.com.cn/problem/P1558">P1558 色板游戏</a></li><li><a href="https://www.luogu.com.cn/problem/P4513">P4513 小白逛公园</a></li><li><a href="https://www.luogu.com.cn/problem/P1471">P1471 方差</a></li><li><a href="https://www.luogu.com.cn/problem/P5522">P5522 [yLOI2019] 棠梨煎雪</a></li><li><a href="https://www.luogu.com.cn/problem/P4145">P4145 上帝造题的七分钟 2 &#x2F; 花神游历各国</a></li><li><a href="https://www.luogu.com.cn/problem/P2572">P2572 [SCOI2010] 序列操作</a></li><li><a href="https://www.luogu.com.cn/problem/CF19D">CF19D Points</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>计划</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图论</tag>
+      
+      <tag>树</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>模板 - 字典树</title>
     <link href="/2024/03/16/muban-dictree/"/>
     <url>/2024/03/16/muban-dictree/</url>
@@ -13,6 +40,8 @@
     
     <categories>
       
+      <category>模板</category>
+      
       <category>树</category>
       
     </categories>
@@ -20,7 +49,7 @@
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>树</tag>
       
     </tags>
     
@@ -38,18 +67,22 @@
     
     <categories>
       
-      <category>链表</category>
+      <category>模板</category>
       
-      <category>邻接矩阵</category>
-      
-      <category>图</category>
+      <category>图论</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>图论</tag>
+      
+      <tag>链表</tag>
+      
+      <tag>邻接矩阵</tag>
+      
+      <tag>图</tag>
       
     </tags>
     
@@ -67,16 +100,18 @@
     
     <categories>
       
-      <category>邻接表</category>
+      <category>模板</category>
       
-      <category>图</category>
+      <category>图论</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>图</tag>
+      
+      <tag>邻接表</tag>
       
     </tags>
     
@@ -96,12 +131,12 @@
       
       <category>题解</category>
       
+      <category>CF</category>
+      
     </categories>
     
     
     <tags>
-      
-      <tag>CF</tag>
       
       <tag>贪心</tag>
       
@@ -123,12 +158,14 @@
       
       <category>题解</category>
       
+      <category>USACO</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>USACO</tag>
+      <tag>贪心</tag>
       
     </tags>
     
@@ -148,12 +185,12 @@
       
       <category>题解</category>
       
+      <category>CF</category>
+      
     </categories>
     
     
     <tags>
-      
-      <tag>CF</tag>
       
       <tag>贪心</tag>
       
@@ -177,47 +214,18 @@
     
     <categories>
       
+      <category>模板</category>
+      
       <category>树</category>
       
-      <category>最近公共祖先</category>
-      
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>树</tag>
       
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>题解 - CF1882B Fear of the Dark</title>
-    <link href="/2024/03/11/tijie-CF1882B/"/>
-    <url>/2024/03/11/tijie-CF1882B/</url>
-    
-    <content type="html"><![CDATA[<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>利用一个 distance 函数用于计算两点之间的欧几里德距离。</p><p>在主函数中，读取测试用例的数量，处理每个测试用例。<br>对于每个测试用例，计算 $PA$、$PB$、$OA$ 和 $OB$ 的距离。<br>使用条件语句来确定 $w$ 的最小值，最后将结果打印为精确到小数点后 $10$ 位的浮点数。</p><p>使用直观的方法来比较距离，并找到问题要求的 $w$ 的最小值。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">double</span> <span class="hljs-title">distance</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">double</span> x1, <span class="hljs-type">long</span> <span class="hljs-type">double</span> y1, <span class="hljs-type">long</span> <span class="hljs-type">double</span> x2, <span class="hljs-type">long</span> <span class="hljs-type">double</span> y2)</span> </span>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-type">int</span> t;<br>cin &gt;&gt; t;<br><br><span class="hljs-keyword">while</span> (t--) &#123;<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> px, py, ax, ay, bx, by;<br>cin &gt;&gt; px &gt;&gt; py &gt;&gt; ax &gt;&gt; ay &gt;&gt; bx &gt;&gt; by;<br><br><span class="hljs-type">long</span> <span class="hljs-type">double</span> PA = <span class="hljs-built_in">distance</span>(px, py, ax, ay);<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> PB = <span class="hljs-built_in">distance</span>(px, py, bx, by);<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> OA = <span class="hljs-built_in">distance</span>(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, ax, ay);<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> OB = <span class="hljs-built_in">distance</span>(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, bx, by);<br><br><span class="hljs-keyword">if</span> (PA &lt; PB &amp;&amp; OA &lt; OB)<br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">max</span>(OA, PA) &lt;&lt; endl;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (PA &gt; PB &amp;&amp; OA &gt; OB)<br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">max</span>(OB, PB) &lt;&lt; endl;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (PA &lt; PB &amp;&amp; OA &gt; OB)<br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">min</span>(<span class="hljs-built_in">min</span>(<span class="hljs-built_in">max</span>(OA, PA), <span class="hljs-built_in">max</span>(OB, PB)), <span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(PA, OB), <span class="hljs-built_in">distance</span>(ax, ay, bx, by) / <span class="hljs-number">2.0</span>)) &lt;&lt; endl;<br><span class="hljs-keyword">else</span><br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">min</span>(<span class="hljs-built_in">min</span>(<span class="hljs-built_in">max</span>(OA, PA), <span class="hljs-built_in">max</span>(OB, PB)), <span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(PB, OA), <span class="hljs-built_in">distance</span>(ax, ay, bx, by) / <span class="hljs-number">2.0</span>)) &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>CF</category>
-      
-      <category>二分</category>
-      
-      <category>数学</category>
-      
-      <category>数学几何</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>模板</tag>
+      <tag>最近公共祖先</tag>
       
     </tags>
     
@@ -235,14 +243,43 @@
     
     <categories>
       
-      <category>状态压缩</category>
+      <category>模板</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>状态压缩</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解 - CF1882B Fear of the Dark</title>
+    <link href="/2024/03/11/tijie-CF1882B/"/>
+    <url>/2024/03/11/tijie-CF1882B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>利用一个 distance 函数用于计算两点之间的欧几里德距离。</p><p>在主函数中，读取测试用例的数量，处理每个测试用例。<br>对于每个测试用例，计算 $PA$、$PB$、$OA$ 和 $OB$ 的距离。<br>使用条件语句来确定 $w$ 的最小值，最后将结果打印为精确到小数点后 $10$ 位的浮点数。</p><p>使用直观的方法来比较距离，并找到问题要求的 $w$ 的最小值。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">double</span> <span class="hljs-title">distance</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">double</span> x1, <span class="hljs-type">long</span> <span class="hljs-type">double</span> y1, <span class="hljs-type">long</span> <span class="hljs-type">double</span> x2, <span class="hljs-type">long</span> <span class="hljs-type">double</span> y2)</span> </span>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-type">int</span> t;<br>cin &gt;&gt; t;<br><br><span class="hljs-keyword">while</span> (t--) &#123;<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> px, py, ax, ay, bx, by;<br>cin &gt;&gt; px &gt;&gt; py &gt;&gt; ax &gt;&gt; ay &gt;&gt; bx &gt;&gt; by;<br><br><span class="hljs-type">long</span> <span class="hljs-type">double</span> PA = <span class="hljs-built_in">distance</span>(px, py, ax, ay);<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> PB = <span class="hljs-built_in">distance</span>(px, py, bx, by);<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> OA = <span class="hljs-built_in">distance</span>(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, ax, ay);<br><span class="hljs-type">long</span> <span class="hljs-type">double</span> OB = <span class="hljs-built_in">distance</span>(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, bx, by);<br><br><span class="hljs-keyword">if</span> (PA &lt; PB &amp;&amp; OA &lt; OB)<br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">max</span>(OA, PA) &lt;&lt; endl;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (PA &gt; PB &amp;&amp; OA &gt; OB)<br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">max</span>(OB, PB) &lt;&lt; endl;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (PA &lt; PB &amp;&amp; OA &gt; OB)<br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">min</span>(<span class="hljs-built_in">min</span>(<span class="hljs-built_in">max</span>(OA, PA), <span class="hljs-built_in">max</span>(OB, PB)), <span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(PA, OB), <span class="hljs-built_in">distance</span>(ax, ay, bx, by) / <span class="hljs-number">2.0</span>)) &lt;&lt; endl;<br><span class="hljs-keyword">else</span><br>cout &lt;&lt; fixed &lt;&lt; <span class="hljs-built_in">setprecision</span>(<span class="hljs-number">10</span>) &lt;&lt; <span class="hljs-built_in">min</span>(<span class="hljs-built_in">min</span>(<span class="hljs-built_in">max</span>(OA, PA), <span class="hljs-built_in">max</span>(OB, PB)), <span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(PB, OA), <span class="hljs-built_in">distance</span>(ax, ay, bx, by) / <span class="hljs-number">2.0</span>)) &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>模板</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>二分</tag>
+      
+      <tag>数学</tag>
+      
+      <tag>数学几何</tag>
       
     </tags>
     
@@ -260,14 +297,16 @@
     
     <categories>
       
-      <category>快速幂</category>
+      <category>模板</category>
+      
+      <category>常用用法</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>快速幂</tag>
       
     </tags>
     
@@ -285,14 +324,16 @@
     
     <categories>
       
-      <category>快速幂</category>
+      <category>模板</category>
+      
+      <category>常用方法</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>快速幂</tag>
       
     </tags>
     
@@ -310,18 +351,20 @@
     
     <categories>
       
-      <category>最短路</category>
+      <category>模板</category>
       
-      <category>算法</category>
-      
-      <category>slf优化</category>
+      <category>图论</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>图论</tag>
+      
+      <tag>最短路</tag>
+      
+      <tag>SPFA的slf优化</tag>
       
     </tags>
     
@@ -339,16 +382,20 @@
     
     <categories>
       
-      <category>最短路</category>
+      <category>模板</category>
       
-      <category>算法</category>
+      <category>图论</category>
       
     </categories>
     
     
     <tags>
       
+      <tag>图论</tag>
+      
       <tag>模板</tag>
+      
+      <tag>最短路</tag>
       
     </tags>
     
@@ -366,16 +413,18 @@
     
     <categories>
       
-      <category>bfs</category>
+      <category>模板</category>
       
-      <category>前缀和</category>
+      <category>搜索</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>bfs</tag>
+      
+      <tag>前缀和</tag>
       
     </tags>
     
@@ -388,21 +437,23 @@
     <link href="/2024/03/11/muban-dijkstra/"/>
     <url>/2024/03/11/muban-dijkstra/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dijkstra</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        dis[i] = g[st][i];<br>    &#125;<br>    vis[st] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-type">int</span> minn = <span class="hljs-number">2147483647</span>;<br>        <span class="hljs-type">int</span> mid = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; minn &gt; dis[j])&#123;<br>                minn = dis[j];<br>                mid = j;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; dis[j] &gt; dis[mid] + g[mid][j])&#123;<br>                dis[j] = dis[mid] + g[mid][j];<br>            &#125;<br>        &#125;<br>        vis[mid] = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="堆优化"><a href="#堆优化" class="headerlink" title="堆优化"></a>堆优化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">dij</span><span class="hljs-params">(<span class="hljs-type">int</span> S, <span class="hljs-type">int</span> *d)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) d[i] = inf, v[i] = <span class="hljs-number">0</span>;<br>    d[S] = <span class="hljs-number">0</span>, q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">mp</span>(<span class="hljs-number">0</span>, S));<br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>()) &#123;<br>        <span class="hljs-type">int</span> x = q.<span class="hljs-built_in">top</span>().se;<br>        q.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-keyword">if</span> (v[x]) <span class="hljs-keyword">continue</span>;<br>        v[x] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (pi o : e[x]) &#123;<br>            <span class="hljs-type">int</span> y = o.fi, z = o.se;<br>            <span class="hljs-keyword">if</span> (d[y] &gt; d[x] + z)<br>                d[y] = d[x] + z, q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">mp</span>(-d[y], y));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dijkstra</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        dis[i] = g[st][i];<br>    &#125;<br>    vis[st] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-type">int</span> minn = <span class="hljs-number">2147483647</span>;<br>        <span class="hljs-type">int</span> mid = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; minn &gt; dis[j])&#123;<br>                minn = dis[j];<br>                mid = j;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(!vis[j] &amp;&amp; dis[j] &gt; dis[mid] + g[mid][j])&#123;<br>                dis[j] = dis[mid] + g[mid][j];<br>            &#125;<br>        &#125;<br>        vis[mid] = <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="堆优化"><a href="#堆优化" class="headerlink" title="堆优化"></a>堆优化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//Dijkstra堆优化算法模板</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">2e5</span>+<span class="hljs-number">5</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> M = <span class="hljs-number">1e6</span>+<span class="hljs-number">5</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-type">int</span> n,m;<br><span class="hljs-type">int</span> a,b,c;<br><span class="hljs-type">int</span> tot = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span><br>&#123;<br><span class="hljs-type">int</span> v,w,next;<br>&#125;edge[M];<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span><br>&#123;<br><span class="hljs-type">int</span> dis,idx;<br><span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-type">const</span> Node &amp;tmp) <span class="hljs-type">const</span><br>&#123;<br><span class="hljs-keyword">return</span> tmp.dis&lt;dis;<br>&#125;<br>&#125;;<br>priority_queue &lt;Node&gt; q; <br><span class="hljs-type">int</span> dist[N],head[N];<br><span class="hljs-type">bool</span> vis[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u,<span class="hljs-type">int</span> v,<span class="hljs-type">int</span> w)</span></span><br><span class="hljs-function"></span>&#123;<br>edge[++tot].v = v;<br>edge[tot].w = w;<br>edge[tot].next = head[u];<br>head[u] = tot;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>dist[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>vis[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>q.<span class="hljs-built_in">push</span>(&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;);<br><span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())<br>&#123;<br>Node tmp = q.<span class="hljs-built_in">top</span>();<br>q.<span class="hljs-built_in">pop</span>();<br>vis[tmp.idx] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = head[tmp.idx];i!=<span class="hljs-number">-1</span>;i = edge[i].next)<br>&#123;<br><span class="hljs-keyword">if</span>(dist[tmp.idx]+edge[i].w &lt; dist[edge[i].v])<br>&#123;<br>dist[edge[i].v] = dist[tmp.idx]+edge[i].w;<br><span class="hljs-keyword">if</span>(!vis[edge[i].v])<br>&#123;<br>vis[edge[i].v] = <span class="hljs-number">1</span>;<br>q.<span class="hljs-built_in">push</span>(&#123;dist[edge[i].v],edge[i].v&#125;);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) head[i] = <span class="hljs-number">-1</span>,dist[i] = inf;<br><span class="hljs-keyword">while</span>(m--)<br>&#123;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c);<br><span class="hljs-built_in">add</span>(a,b,c);<br>&#125;<br><span class="hljs-built_in">dijkstra</span>();<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(dist[i]==inf) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;-32767 &quot;</span>);<br>        <span class="hljs-keyword">else</span> <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,dist[i]);<br>    &#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="负权图无法用迪杰斯特拉的原因"><a href="#负权图无法用迪杰斯特拉的原因" class="headerlink" title="负权图无法用迪杰斯特拉的原因"></a>负权图无法用迪杰斯特拉的原因</h3><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/f293379d162c43eabdaeb19621830e98.png"></p>]]></content>
     
     
     <categories>
       
-      <category>最短路</category>
+      <category>模板</category>
       
-      <category>算法</category>
+      <category>图论</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>图论</tag>
+      
+      <tag>最短路</tag>
       
     </tags>
     
@@ -420,16 +471,18 @@
     
     <categories>
       
-      <category>最短路</category>
+      <category>模板</category>
       
-      <category>算法</category>
+      <category>图论</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>图论</tag>
+      
+      <tag>最短路</tag>
       
     </tags>
     
@@ -442,7 +495,7 @@
     <link href="/2024/03/11/xuexibiji-zuiduanlujieshao/"/>
     <url>/2024/03/11/xuexibiji-zuiduanlujieshao/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/3ebb137d033144b29d659afcd879415e.png"></p><p>1、floyd算法：<br>图中一个顶点到另一个顶点的路径认为有两种，第一种是直接连接，即从起始点连接到终点，路径长度为a [ i ] [ j ]；第二种是间接连接，即通过中间点k将两者连接起来,路径长度为a [ i ] [ k ] + a [ k ] [ j ] 。而Floyd算法的任务即是比较这两种路径，选择出长度较短的路径。</p><p>2、dijkstra算法：单源最短路径<br>如题中的边带有负权值，则dijkstra算法并不适用。</p><p>3、spfa算法：<br>spfa算法与bfs算法类似。用dis数组记录源点到有向图上任意一点距离，其中源点到自身距离为0，到其他点距离为INF。将源点入队，并重复以下步骤：  </p><ol><li>队首x出队，并将该点标记为没有访问过，方便下次入队  </li><li>遍历所有以队首为起点的有向边(x,i)，更新dis[i]  </li><li>如果点i不在队列中，则i入队并标记已访问  </li><li>若队列为空，跳出循环；否则执行1</li></ol><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/27a2be3389484550a7d0550f49623291.png"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/3ebb137d033144b29d659afcd879415e.png"></p><p>1、floyd算法：<br>图中一个顶点到另一个顶点的路径认为有两种，第一种是直接连接，即从起始点连接到终点，路径长度为a [ i ] [ j ]；第二种是间接连接，即通过中间点k将两者连接起来,路径长度为a [ i ] [ k ] + a [ k ] [ j ] 。而Floyd算法的任务即是比较这两种路径，选择出长度较短的路径。</p><p>2、dijkstra算法：单源最短路径<br>如题中的边带有负权值，则dijkstra算法并不适用。</p><p>3、spfa算法：<br>spfa算法与bfs算法类似。用dis数组记录源点到有向图上任意一点距离，其中源点到自身距离为0，到其他点距离为INF。将源点入队，并重复以下步骤：  </p><ol><li>队首x出队，并将该点标记为没有访问过，方便下次入队  </li><li>遍历所有以队首为起点的有向边(x,i)，更新dis[i]  </li><li>如果点i不在队列中，则i入队并标记已访问  </li><li>若队列为空，跳出循环；否则执行1</li></ol><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/27a2be3389484550a7d0550f49623291.png"></p><h3 id="正环、零环、负环"><a href="#正环、零环、负环" class="headerlink" title="正环、零环、负环"></a>正环、零环、负环</h3><p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/161dc923c7134164bdc20b450bb9e3dc.png"></p>]]></content>
     
     
     <categories>
@@ -474,16 +527,16 @@
     
     <categories>
       
-      <category>csp初赛</category>
-      
-      <category>C++基础知识</category>
+      <category>基础知识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>基础知识</tag>
+      <tag>csp初赛</tag>
+      
+      <tag>C++基础知识</tag>
       
     </tags>
     
@@ -501,16 +554,18 @@
     
     <categories>
       
-      <category>dfs</category>
+      <category>模板</category>
       
-      <category>皇后问题</category>
+      <category>搜索</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>dfs</tag>
+      
+      <tag>皇后问题</tag>
       
     </tags>
     
@@ -528,16 +583,20 @@
     
     <categories>
       
-      <category>bfs</category>
+      <category>模板</category>
       
-      <category>最短路</category>
+      <category>搜索</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>最短路</tag>
+      
+      <tag>bfs</tag>
+      
+      <tag>搜索</tag>
       
     </tags>
     
@@ -555,16 +614,20 @@
     
     <categories>
       
-      <category>dfs</category>
+      <category>模板</category>
       
-      <category>皇后问题</category>
+      <category>搜索</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>dfs</tag>
+      
+      <tag>皇后问题</tag>
+      
+      <tag>搜索</tag>
       
     </tags>
     
@@ -582,18 +645,18 @@
     
     <categories>
       
-      <category>栈问题</category>
-      
-      <category>队列</category>
-      
-      <category>stl</category>
+      <category>模板</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>栈</tag>
+      
+      <tag>队列</tag>
+      
+      <tag>stl</tag>
       
     </tags>
     
@@ -611,14 +674,16 @@
     
     <categories>
       
-      <category>排序</category>
+      <category>模板</category>
+      
+      <category>常用方法</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模板</tag>
+      <tag>排序</tag>
       
     </tags>
     
@@ -638,14 +703,16 @@
       
       <category>学习笔记</category>
       
+      <category>树</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>算法</tag>
-      
       <tag>树</tag>
+      
+      <tag>算法</tag>
       
     </tags>
     
@@ -665,14 +732,16 @@
       
       <category>学习笔记</category>
       
+      <category>树</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>算法</tag>
-      
       <tag>树</tag>
+      
+      <tag>算法</tag>
       
     </tags>
     
@@ -697,9 +766,9 @@
     
     <tags>
       
-      <tag>算法</tag>
-      
       <tag>二分</tag>
+      
+      <tag>算法</tag>
       
     </tags>
     
@@ -718,6 +787,35 @@
     <categories>
       
       <category>游记</category>
+      
+      <category>2024</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>游记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>游记 - CSP-J2 2023 四川·绵阳</title>
+    <link href="/2023/10/21/youji-cspj2/"/>
+    <url>/2023/10/21/youji-cspj2/</url>
+    
+    <content type="html"><![CDATA[<p>今天是 10-21 日，是 CCF CSP-J&#x2F;S 复赛的日子。  </p><p>不想说初赛了，也就刚刚掐分数线，$S$ 差 $0.5$。</p><p>有点可惜，主要是没有好好复习。</p><p>我所在的省份，也就是四川，有四个考点，成都有两个，绵阳有两个。我在成都读书，但是，好巧不巧的是，我被分到了绵阳考点，意味着我在比赛前一天还要前往绵阳市。</p><p>模拟赛成绩 $7$ 次，$6$ 次第一。</p><h3 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h3><p>今天是学校的运动会，我参加了 $1000m$ 和 $50m*30$ 接力的比赛 ，也取得了不错的成绩（$1000$ 季军，接力第一）。当然，明天是 CSP 复赛的日子。</p><p>学校运动会因为闭幕式和迎面大接力的比赛搞了很久。导致放学时间延到了 6:40（运动会没有晚自习）。而我订的 8:12 的火车啊！！！</p><p>我飞奔回家，发现自己还有时间吃个饭。当然，对于我这种住在火车南站旁边的人，赶火车是不用慌的。但是，我订的东站的火车啊！！！</p><p>真的能被搞无语，运动会下来整个腿都在抖，一种酸痛油然而生。</p><p>我准备坐地铁去东站，还好不用换乘，地铁时间大约在 $30$ 分钟左右，跑到地铁站的时候，差点就倒在地上了，腿上完全没力（不知道为什么，放松都做到位了的），好巧不巧的是，遇到晚高峰，地铁上一班刚走。</p><p>总算赶到火车站，还有时间去买根烤肠。</p><p>上火车了，嗯。。。。怎么说呢，我的腿。。。。（车厢在最前端，有要跑）。</p><p>这里有个好玩的，没想到这辆火车的座位方向是反着的，我以为从前往后数是第二排，结果是第十七排（是的我做错位置了）。</p><p>到达绵阳、收拾好东西快十一点了，你可以看我发的犇犇。</p><p>我们订了一个离考场很近的的酒店。</p><p>很遗憾这次没有参加 $S$ 组。</p><h3 id="Day-1-AM"><a href="#Day-1-AM" class="headerlink" title="Day 1 AM."></a>Day 1 AM.</h3><p>早餐是在酒店吃的。</p><p>餐厅全是去考 CSP 的人。</p><p>我甚至还看到了穿我们学校校服的人。</p><p>吃完早餐，走到考点 $5$ 分钟，路上喝杯茶、背背模版。</p><p>到达大门口，看见东辰学校门口挂着 “CSP-J&#x2F;S 2023 复赛 四川 - 绵阳东辰考点”。（吐槽一下，那里的电子显示屏坏了一半）</p><p>到达考点时已经离开考只剩不到 $15$ 分钟了，我以为我挺近的，结果保安看到我的座位号，让我跑快点。</p><p>我一脸懵逼，这门口不就是吗？还早着呢？</p><p>等一下，这是明志楼。。。</p><p>我是弘毅楼。。。</p><p>看了看指示图，这个人都不好了。</p><p>要穿过两个操场（一圈 $1000$ 米）。</p><p>我昨天才跑了 $1000$ 啊。。。。</p><p>这对我十分的不友好。</p><p>到的时候已经在发密码了。</p><p>用时: $30$ + $35$ + $60$ + $50$</p><p>剩下的时间全在用另外的方法写 T4。</p><h3 id="Day-1-PM"><a href="#Day-1-PM" class="headerlink" title="Day 1 PM"></a>Day 1 PM</h3><p>考的感觉还挺好，小图灵 $280$。</p><p>我好像把 T3 的 freopen 注释掉了。。。。</p><p>中午吃了个绵阳米线，赶到火车站还有一小时发车。</p><p>我返程票买的商务舱，感觉还挺好。</p><p>服务挺到位的，高铁就是不一样，速度嘎嘎快。</p><p>《商务座体验卡》</p><p>只有 $40$ 分钟。</p><h1 id="The-end"><a href="#The-end" class="headerlink" title="The end"></a>The end</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>游记</category>
+      
+      <category>2023</category>
       
     </categories>
     
