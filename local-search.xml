@@ -4,7 +4,92 @@
   
   
   <entry>
-    <title>题解 - P10134 Cowmpetency</title>
+    <title>学习笔记 - Dijkstra</title>
+    <link href="/2024/04/03/xuexibiji-dijkstra/"/>
+    <url>/2024/04/03/xuexibiji-dijkstra/</url>
+    
+    <content type="html"><![CDATA[<p>Dijkstra 算法是一种用于寻找图中两点之间最短路径的算法。它由荷兰计算机科学家艾兹赫尔·戴克斯特拉（Edsger W. Dijkstra）在1956年提出，并于1959年发表。</p><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>Dijkstra算法适用于带权重的图，包括有向图和无向图。算法的核心思想是贪心法：每次找到距离起点最近的一个未被访问的顶点，然后考察所有由这个顶点引出的边，通过这个顶点更新起点到其他所有顶点的距离。</p><h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><ol><li>初始化：将所有顶点标记为未访问，设置起点到自身的最短距离为 $0$，到其他所有顶点的最短距离为无穷大。</li><li>选择最小距离的未访问顶点 $u$，访问并标记该顶点。</li><li>更新顶点 $u$ 的邻接顶点的距离。</li><li>重复步骤 <code>2</code> 和 <code>3</code>，直到所有顶点都被访问。</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;limits&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;set&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Dijkstra</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt;&gt;&amp; graph, <span class="hljs-type">int</span> src)</span> </span>&#123;<br><span class="hljs-type">int</span> V = graph.<span class="hljs-built_in">size</span>();<br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">dist</span><span class="hljs-params">(V, numeric_limits&lt;<span class="hljs-type">int</span>&gt;::max())</span></span>;<br>set&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; setds;<br>dist[src] = <span class="hljs-number">0</span>;<br>setds.<span class="hljs-built_in">insert</span>(<span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>, src));<br><span class="hljs-keyword">while</span> (!setds.<span class="hljs-built_in">empty</span>()) &#123;<br>pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; tmp = (setds.<span class="hljs-built_in">begin</span>());<br>setds.<span class="hljs-built_in">erase</span>(setds.<span class="hljs-built_in">begin</span>());<br><span class="hljs-type">int</span> u = tmp.second;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i = graph[u].<span class="hljs-built_in">begin</span>(); i != graph[u].<span class="hljs-built_in">end</span>(); ++i) &#123;<br><span class="hljs-type">int</span> v = (i).first;<br><span class="hljs-type">int</span> weight = (i).second;<br><span class="hljs-keyword">if</span> (dist[v] &gt; dist[u] + weight) &#123;<br><span class="hljs-keyword">if</span> (dist[v] != numeric_limits&lt;<span class="hljs-type">int</span>&gt;::<span class="hljs-built_in">max</span>()) &#123;<br>setds.<span class="hljs-built_in">erase</span>(setds.<span class="hljs-built_in">find</span>(<span class="hljs-built_in">make_pair</span>(dist[v], v)));<br>&#125;<br>dist[v] = dist[u] + weight;<br>setds.<span class="hljs-built_in">insert</span>(<span class="hljs-built_in">make_pair</span>(dist[v], v));<br>&#125;<br>&#125;<br>&#125;<br>cout &lt;&lt; <span class="hljs-string">&quot;Vertex Distance from Source\n&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; ++i) cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;\t\t&quot;</span> &lt;&lt; dist[i] &lt;&lt; endl;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-comment">// 示例图的邻接表表示</span><br>vector&lt;vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt;&gt; graph = &#123; &#123;&#123;<span class="hljs-number">1</span>, <span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">2</span>, <span class="hljs-number">1</span>&#125;&#125;, &#123;&#123;<span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">3</span>, <span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">4</span>, <span class="hljs-number">3</span>&#125;&#125;, &#123;&#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;&#125;, &#123;&#123;<span class="hljs-number">4</span>, <span class="hljs-number">1</span>&#125;&#125;, &#123;&#125; &#125;;<br><span class="hljs-built_in">Dijkstra</span>(graph, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li>Dijkstra算法不能处理图中含有负权边的情况。如果图中含有负权边，可以考虑使用Bellman-Ford算法。</li><li>上述C++实现使用了 <code>set</code> 来寻找当前未访问顶点中距离最小的顶点，这使得算法的时间复杂度为 $O(V^2)$。对于稠密图来说是可接受的，但对于稀疏图，可以使用优先队列（<code>priority_queue</code>）来优化，将时间复杂度降低到 $O((V+E)log_2V)$。</li></ul><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Dijkstra算法是图论中一个非常基础且重要的算法，适用于解决许多实际问题，如网络路由、地图导航等。掌握其原理和实现于解决许多实际问题，如网络路由、地图导航等。掌握其原理和实现对于学习更高级的图论算法也非常有帮助。</p><h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul><li><strong>优化技巧</strong>：在实际应用中，Dijkstra 算法的性能可以通过使用优先队列来大幅度提升。优先队列能够保证每次从队列中取出的都是当前最短距离的顶点，这样可以避免对所有顶点的遍历，从而降低算法的时间复杂度。</li><li><strong>变体</strong>：Dijkstra 算法有许多变体，例如，当需要找到从源点到所有其他顶点的最短路径时，可以稍微修改算法来实现。此外，对于特定类型的图（如非负权重图），Dijkstra 算法尤其有效。</li><li><strong>实际应用</strong>：在实际应用中，如地图软件的路径规划，通常会结合 Dijkstra 算法和其他技术（如A*搜索算法）来提高效率和准确性。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习笔记</category>
+      
+      <category>图论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图论</tag>
+      
+      <tag>最短路</tag>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解 - CF1950C Clock Conversion</title>
+    <link href="/2024/04/03/tijie-CF1950C/"/>
+    <url>/2024/04/03/tijie-CF1950C/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/article/rbps6s0g">Luogu</a></p><p>本题是一个简单的时间转换程序，将给定的二十四小时制时间转换为十二小时制时间。</p><p>模拟即可，读取字符串后，提出小时和分钟部分，下标为 $0$ 和 $1$ 的数字组成小时部分，$3$ 和 $4$ 组成分钟部分。</p><p>按照题意，根据小时部分和分钟部分，如果小时部分小于 $12$，则时间为 <code>AM</code>，如果小时部分等于 $0$，则小时部分改为 $12$，小时部分大于 $12$，时间为 <code>PM</code>，小时部分减 $12$ 输出即可。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> T;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>cin &gt;&gt; T;<br><span class="hljs-keyword">while</span> (T--) &#123;<br>string s, ans1 = <span class="hljs-string">&quot;&quot;</span>, ans2 = <span class="hljs-string">&quot;&quot;</span>, ans3 = <span class="hljs-string">&quot;&quot;</span>, ans;<br>cin &gt;&gt; s;<br>ans = s.<span class="hljs-built_in">substr</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br><span class="hljs-type">int</span> n;<br>n = (s[<span class="hljs-number">0</span>] - <span class="hljs-string">&#x27;0&#x27;</span>) * <span class="hljs-number">10</span> + (s[<span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>ans1 += s[<span class="hljs-number">0</span>], ans1 += s[<span class="hljs-number">1</span>], ans1 += ans, ans1 += <span class="hljs-string">&quot; AM&quot;</span>;<br>ans2 += <span class="hljs-string">&quot;12&quot;</span>, ans2 += ans;<br><span class="hljs-keyword">if</span> (n % <span class="hljs-number">12</span> &gt; <span class="hljs-number">9</span>) &#123;<br><span class="hljs-keyword">if</span> (n % <span class="hljs-number">12</span> == <span class="hljs-number">10</span>)ans3 += <span class="hljs-string">&quot;10&quot;</span>;<br><span class="hljs-keyword">else</span> ans3 += <span class="hljs-string">&quot;11&quot;</span>;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>ans3 += <span class="hljs-string">&quot;0&quot;</span>;<br>ans3 += (n % <span class="hljs-number">12</span> + <span class="hljs-string">&#x27;0&#x27;</span>);<br>&#125;<br>ans3 += ans;<br>ans3 += <span class="hljs-string">&quot; PM&quot;</span>;<br>cout &lt;&lt; ((n &lt; <span class="hljs-number">12</span>) ? ((n == <span class="hljs-number">0</span>) ? ans2 + <span class="hljs-string">&quot; AM&quot;</span> : ans1): ((n == <span class="hljs-number">12</span>) ? ans2 + <span class="hljs-string">&quot; PM&quot;</span> : ans3))&lt;&lt; endl;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+      <category>CF</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解 - CF1950B Upscaling</title>
+    <link href="/2024/04/03/tijie-CF1950B/"/>
+    <url>/2024/04/03/tijie-CF1950B/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/article/5y1bz8oo">Luogu</a></p><p>题目要求根据给定的整数 $n$，输出一个 $2n \times 2n$ 的棋盘，其中每个 $2 \times 2 $的小方块交替使用  <code>#</code> 和 <code>.</code> 构成。</p><p>模拟即可，用一个 <code>flag</code> 表示当前应该使用 <code>#</code> 还是 <code>.</code>，使用两层循环来生成棋盘，每次循环是，先根据 <code>flag</code> 的值输出当前行的两个方块，然后翻转 <code>flag</code> 的值，以便下一行使用相反的符号。  </p><p>每输出完一行，根据 $n$ 的奇偶性来更新 <code>flag</code> 的值，使得下一行的开头与当前行的结尾相反即可，时间复杂度为 $O(n^2)$。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> T;<br>    cin &gt;&gt; T;<br>    <span class="hljs-keyword">while</span> (T--) &#123;<br>        <span class="hljs-type">int</span> n;<br>        cin &gt;&gt; n;<br>        <span class="hljs-type">bool</span> flag = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span> * n; i += <span class="hljs-number">2</span>) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">2</span> * n; j += <span class="hljs-number">2</span>) &#123;<br>                <span class="hljs-keyword">if</span> (flag)<br>                    cout &lt;&lt; <span class="hljs-string">&quot;##&quot;</span>;<br>                <span class="hljs-keyword">else</span><br>                    cout &lt;&lt; <span class="hljs-string">&quot;..&quot;</span>;<br>                flag = !flag;<br>            &#125;<br>            cout &lt;&lt; endl;<br>            <br>            <span class="hljs-keyword">if</span> (n % <span class="hljs-number">2</span>)<br>                flag = !flag;<br>                <br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">2</span> * n; j += <span class="hljs-number">2</span>) &#123;<br>                <span class="hljs-keyword">if</span> (flag)<br>                    cout &lt;&lt; <span class="hljs-string">&quot;##&quot;</span>;<br>                <span class="hljs-keyword">else</span><br>                    cout &lt;&lt; <span class="hljs-string">&quot;..&quot;</span>;<br>                flag = !flag;<br>            &#125;<br>            cout &lt;&lt; endl;<br><br>            <span class="hljs-keyword">if</span> (n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)<br>                flag = !flag;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+      <category>CF</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解 - P10293 Troublesome Keys</title>
     <link href="/2024/04/02/tijie-P10293/"/>
     <url>/2024/04/02/tijie-P10293/</url>
     
@@ -14,6 +99,8 @@
     <categories>
       
       <category>题解</category>
+      
+      <category>CCC</category>
       
     </categories>
     
@@ -217,9 +304,9 @@
     
     <tags>
       
-      <tag>贪心</tag>
-      
       <tag>dp</tag>
+      
+      <tag>贪心</tag>
       
       <tag>模拟</tag>
       
