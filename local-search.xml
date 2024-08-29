@@ -427,6 +427,33 @@
   
   
   <entry>
+    <title>模板 - 快速幂</title>
+    <link href="/2024/03/11/muban-quick_pow/"/>
+    <url>/2024/03/11/muban-quick_pow/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> b, p, k;<br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span>  <span class="hljs-title">quik_power</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> base, <span class="hljs-type">long</span> <span class="hljs-type">long</span> power,<span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span> </span>&#123;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span>  result = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (power &gt; <span class="hljs-number">0</span>) &#123;         <span class="hljs-comment">//指数大于0进行指数折半，底数变其平方的操作</span><br><span class="hljs-keyword">if</span> (power &amp; <span class="hljs-number">1</span>)     <span class="hljs-comment">//指数为奇数</span><br>result=result * base%k;     <span class="hljs-comment">//分离出当前项并累乘后保存</span><br>power &gt;&gt;= <span class="hljs-number">1</span>;            <span class="hljs-comment">//指数折半</span><br>base=base * base%k;           <span class="hljs-comment">//底数变其平方</span><br>&#125;<br><span class="hljs-keyword">return</span> result;              <span class="hljs-comment">//返回最终结果</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    cin&gt;&gt;b&gt;&gt;p&gt;&gt;k;<br>    cout&lt;&lt;<span class="hljs-built_in">quik_power</span>(b,p,k);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>模板</category>
+      
+      <category>常用方法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>快速幂</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>模板 - SPFA的SLF优化</title>
     <link href="/2024/03/11/muban-spfa-SLFyouhua/"/>
     <url>/2024/03/11/muban-spfa-SLFyouhua/</url>
@@ -458,25 +485,27 @@
   
   
   <entry>
-    <title>模板 - 快速幂</title>
-    <link href="/2024/03/11/muban-quick_pow/"/>
-    <url>/2024/03/11/muban-quick_pow/</url>
+    <title>模版 - bfs倒水问题</title>
+    <link href="/2024/03/11/muban-bfs-daoshui/"/>
+    <url>/2024/03/11/muban-bfs-daoshui/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> b, p, k;<br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span>  <span class="hljs-title">quik_power</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> base, <span class="hljs-type">long</span> <span class="hljs-type">long</span> power,<span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span> </span>&#123;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span>  result = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (power &gt; <span class="hljs-number">0</span>) &#123;         <span class="hljs-comment">//指数大于0进行指数折半，底数变其平方的操作</span><br><span class="hljs-keyword">if</span> (power &amp; <span class="hljs-number">1</span>)     <span class="hljs-comment">//指数为奇数</span><br>result=result * base%k;     <span class="hljs-comment">//分离出当前项并累乘后保存</span><br>power &gt;&gt;= <span class="hljs-number">1</span>;            <span class="hljs-comment">//指数折半</span><br>base=base * base%k;           <span class="hljs-comment">//底数变其平方</span><br>&#125;<br><span class="hljs-keyword">return</span> result;              <span class="hljs-comment">//返回最终结果</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    cin&gt;&gt;b&gt;&gt;p&gt;&gt;k;<br>    cout&lt;&lt;<span class="hljs-built_in">quik_power</span>(b,p,k);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span> &#123;<br><span class="hljs-type">int</span> x, y, step;<br>&#125;;<br>queue&lt;node&gt; q;<br>node lu[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>], ans[<span class="hljs-number">101</span>];<br><span class="hljs-type">int</span> n, m, sx, sy, ex, ey;<br><span class="hljs-type">int</span> mp[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> vis[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;;<br><span class="hljs-type">int</span> dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span> </span>&#123;<br>node a = &#123;sx, sy, <span class="hljs-number">0</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(a);<br>vis[sx][sy] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">empty</span>() != <span class="hljs-number">1</span>) &#123;<br>node f = q.<span class="hljs-built_in">front</span>();<br><span class="hljs-comment">//cout &lt;&lt; f.x &lt;&lt; &quot; &quot; &lt;&lt; f.y &lt;&lt; &quot; &quot; &lt;&lt; f.step &lt;&lt; endl;</span><br><span class="hljs-keyword">if</span> (f.x == ex &amp;&amp; f.y == ey) &#123;<br>cout &lt;&lt; f.step &lt;&lt; endl;<br>ans[f.step] = f;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f.step - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>ans[i] = lu[ans[i + <span class="hljs-number">1</span>].x][ans[i + <span class="hljs-number">1</span>].y];<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= f.step; i++) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; ans[i].x &lt;&lt; <span class="hljs-string">&quot;,&quot;</span> &lt;&lt; ans[i].y &lt;&lt; <span class="hljs-string">&quot;) &quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br><span class="hljs-type">int</span> nx = f.x + dx[i];<br><span class="hljs-type">int</span> ny = f.y + dy[i];<br><span class="hljs-keyword">if</span> (nx &gt;= <span class="hljs-number">1</span> &amp;&amp; nx &lt;= n &amp;&amp; ny &gt;= <span class="hljs-number">1</span> &amp;&amp; ny &lt;= m &amp;&amp; mp[nx][ny] == <span class="hljs-number">1</span> &amp;&amp; vis[nx][ny] == <span class="hljs-number">0</span>) &#123;<br>vis[nx][ny] = <span class="hljs-number">1</span>;<br>lu[nx][ny] = f;<br>node r = &#123;nx, ny, f.step + <span class="hljs-number">1</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(r);<br>&#125;<br>&#125;<br>q.<span class="hljs-built_in">pop</span>();<br>&#125;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>cin &gt;&gt; n &gt;&gt; m;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>cin &gt;&gt; mp[i][j];<br>&#125;<br>&#125;<br>cin &gt;&gt; sx &gt;&gt; sy &gt;&gt; ex &gt;&gt; ey;<br><span class="hljs-keyword">if</span> (mp[sx][sy] == <span class="hljs-number">2</span> || mp[ex][ey] == <span class="hljs-number">2</span>) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-built_in">bfs</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
       
       <category>模板</category>
       
-      <category>常用方法</category>
+      <category>搜索</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>快速幂</tag>
+      <tag>bfs</tag>
+      
+      <tag>前缀和</tag>
       
     </tags>
     
@@ -508,35 +537,6 @@
       <tag>模板</tag>
       
       <tag>最短路</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>模版 - bfs倒水问题</title>
-    <link href="/2024/03/11/muban-bfs-daoshui/"/>
-    <url>/2024/03/11/muban-bfs-daoshui/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span> &#123;<br><span class="hljs-type">int</span> x, y, step;<br>&#125;;<br>queue&lt;node&gt; q;<br>node lu[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>], ans[<span class="hljs-number">101</span>];<br><span class="hljs-type">int</span> n, m, sx, sy, ex, ey;<br><span class="hljs-type">int</span> mp[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> vis[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>] = &#123;&#125;;<br><span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;;<br><span class="hljs-type">int</span> dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span> </span>&#123;<br>node a = &#123;sx, sy, <span class="hljs-number">0</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(a);<br>vis[sx][sy] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">empty</span>() != <span class="hljs-number">1</span>) &#123;<br>node f = q.<span class="hljs-built_in">front</span>();<br><span class="hljs-comment">//cout &lt;&lt; f.x &lt;&lt; &quot; &quot; &lt;&lt; f.y &lt;&lt; &quot; &quot; &lt;&lt; f.step &lt;&lt; endl;</span><br><span class="hljs-keyword">if</span> (f.x == ex &amp;&amp; f.y == ey) &#123;<br>cout &lt;&lt; f.step &lt;&lt; endl;<br>ans[f.step] = f;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f.step - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>ans[i] = lu[ans[i + <span class="hljs-number">1</span>].x][ans[i + <span class="hljs-number">1</span>].y];<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= f.step; i++) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; ans[i].x &lt;&lt; <span class="hljs-string">&quot;,&quot;</span> &lt;&lt; ans[i].y &lt;&lt; <span class="hljs-string">&quot;) &quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br><span class="hljs-type">int</span> nx = f.x + dx[i];<br><span class="hljs-type">int</span> ny = f.y + dy[i];<br><span class="hljs-keyword">if</span> (nx &gt;= <span class="hljs-number">1</span> &amp;&amp; nx &lt;= n &amp;&amp; ny &gt;= <span class="hljs-number">1</span> &amp;&amp; ny &lt;= m &amp;&amp; mp[nx][ny] == <span class="hljs-number">1</span> &amp;&amp; vis[nx][ny] == <span class="hljs-number">0</span>) &#123;<br>vis[nx][ny] = <span class="hljs-number">1</span>;<br>lu[nx][ny] = f;<br>node r = &#123;nx, ny, f.step + <span class="hljs-number">1</span>&#125;;<br>q.<span class="hljs-built_in">push</span>(r);<br>&#125;<br>&#125;<br>q.<span class="hljs-built_in">pop</span>();<br>&#125;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>cin &gt;&gt; n &gt;&gt; m;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>cin &gt;&gt; mp[i][j];<br>&#125;<br>&#125;<br>cin &gt;&gt; sx &gt;&gt; sy &gt;&gt; ex &gt;&gt; ey;<br><span class="hljs-keyword">if</span> (mp[sx][sy] == <span class="hljs-number">2</span> || mp[ex][ey] == <span class="hljs-number">2</span>) &#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span>;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-built_in">bfs</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>模板</category>
-      
-      <category>搜索</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>bfs</tag>
-      
-      <tag>前缀和</tag>
       
     </tags>
     
@@ -704,9 +704,9 @@
     
     <tags>
       
-      <tag>最短路</tag>
-      
       <tag>bfs</tag>
+      
+      <tag>最短路</tag>
       
       <tag>搜索</tag>
       
