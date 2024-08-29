@@ -26,7 +26,7 @@
 <meta property="og:description" content="Luogu 本题是一个简单的时间转换程序，将给定的二十四小时制时间转换为十二小时制时间。 模拟即可，读取字符串后，提出小时和分钟部分，下标为 $0$ 和 $1$ 的数字组成小时部分，$3$ 和 $4$ 组成分钟部分。 按照题意，根据小时部分和分钟部分，如果小时部分小于 $12$，则时间为 AM，如果小时部分等于 $0$，则小时部分改为 $12$，小时部分大于 $12$，时间为 PM，小时部分减 $">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-03T11:42:25.000Z">
-<meta property="article:modified_time" content="2024-04-03T11:48:30.000Z">
+<meta property="article:modified_time" content="2024-08-29T08:27:08.851Z">
 <meta property="article:author" content="MhxMa">
 <meta property="article:tag" content="模拟">
 <meta name="twitter:card" content="summary_large_image">
@@ -46,8 +46,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -336,7 +334,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-04-03T19:48:30+08:00
+                    本文最后更新于 2024-08-29T16:27:08+08:00
                   
                   
 
@@ -506,6 +504,7 @@
 
   
   
+
 
 
 
@@ -749,6 +748,49 @@
   });
 </script>
 
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

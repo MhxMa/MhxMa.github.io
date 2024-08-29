@@ -49,8 +49,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -407,9 +405,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/11/muban-quick_pow/" title="模板 - 快速幂">
+                      <a href="/2024/03/11/tijie-CF1882B/" title="题解 - CF1882B Fear of the Dark">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">模板 - 快速幂</span>
+                        <span class="hidden-mobile">题解 - CF1882B Fear of the Dark</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -417,8 +415,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/11/muban-bfs-daoshui/" title="模版 - bfs倒水问题">
-                        <span class="hidden-mobile">模版 - bfs倒水问题</span>
+                      <a href="/2024/03/11/muban-juzhen-quick_pow/" title="模板 - 矩阵快速幂">
+                        <span class="hidden-mobile">模板 - 矩阵快速幂</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -509,6 +507,7 @@
 
   
   
+
 
 
 
@@ -752,6 +751,49 @@
   });
 </script>
 
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

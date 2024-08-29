@@ -306,9 +306,9 @@
       
       <tag>贪心</tag>
       
-      <tag>dp</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>dp</tag>
       
     </tags>
     
@@ -400,6 +400,37 @@
   
   
   <entry>
+    <title>模板 - SPFA的SLF优化</title>
+    <link href="/2024/03/11/muban-spfa-SLFyouhua/"/>
+    <url>/2024/03/11/muban-spfa-SLFyouhua/</url>
+    
+    <content type="html"><![CDATA[<p>SLF 优化就是 small label first 优化，由于先扩展最小的点可以尽量使程序尽早结束<br>因此当加入一个新点 u 的时候，如果此时的 dis[u] 比队首的 dis[q.front()] 小的话，就将点 v 加入队首，否则加入队尾<br>利用 STL 中的双端队列 deque 即可</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br><span class="hljs-type">int</span> u, v, w;<br>&#125; e[MAXN];<br><span class="hljs-type">int</span> cnt, f[MAXN], dis[MAXN], vis[MAXN];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span> </span>&#123;<br>e[++cnt] = (Edge) &#123;<br>f[u], v, w<br>&#125;;<br>f[u] = cnt;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SPFA</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>deque&lt;<span class="hljs-type">int</span>&gt; q;<br>q.<span class="hljs-built_in">push_front</span>(s);<br>dis[s] = <span class="hljs-number">0</span>;<br>vis[s] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br><span class="hljs-type">int</span> t = q.<span class="hljs-built_in">front</span>();<br>q.<span class="hljs-built_in">pop_front</span>();<br>vis[t] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f[t]; i; i = e[i].u) &#123;<br><span class="hljs-type">int</span> v = e[i].v;<br><span class="hljs-keyword">if</span> (dis[v] &gt; dis[t] + e[i].w) &#123;<br>dis[v] = dis[t] + e[i].w;<br><span class="hljs-keyword">if</span> (!vis[v]) &#123;<br>vis[v] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">if</span> (!q.<span class="hljs-built_in">empty</span>() &amp;&amp; dis[v] &lt; dis[q.<span class="hljs-built_in">front</span>()] &#123;<br>q.<span class="hljs-built_in">push_front</span>(v);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>q.<span class="hljs-built_in">push_back</span>(v);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-built_in">main</span>() &#123;<br><span class="hljs-type">int</span> n, m, s, t, w;<br>cin &gt;&gt; n &gt;&gt; m;<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(f));<br><span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(vis));<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">0x3f</span>, <span class="hljs-built_in">sizeof</span>(dis));<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>cin &gt;&gt; s &gt;&gt; t &gt;&gt; w;<br><span class="hljs-built_in">Add</span>(s, t, w);<br>&#125;<br><span class="hljs-built_in">SPFA</span>(<span class="hljs-number">1</span>);<br>cout &lt;&lt; dis[n] &lt;&lt; endl;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>模板</category>
+      
+      <category>图论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图论</tag>
+      
+      <tag>最短路</tag>
+      
+      <tag>SPFA的slf优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>模板 - 矩阵快速幂</title>
     <link href="/2024/03/11/muban-juzhen-quick_pow/"/>
     <url>/2024/03/11/muban-juzhen-quick_pow/</url>
@@ -454,11 +485,11 @@
   
   
   <entry>
-    <title>模板 - SPFA的SLF优化</title>
-    <link href="/2024/03/11/muban-spfa-SLFyouhua/"/>
-    <url>/2024/03/11/muban-spfa-SLFyouhua/</url>
+    <title>模板 - Bellman-Ford</title>
+    <link href="/2024/03/11/muban-Bellman-Ford/"/>
+    <url>/2024/03/11/muban-Bellman-Ford/</url>
     
-    <content type="html"><![CDATA[<p>SLF 优化就是 small label first 优化，由于先扩展最小的点可以尽量使程序尽早结束<br>因此当加入一个新点 u 的时候，如果此时的 dis[u] 比队首的 dis[q.front()] 小的话，就将点 v 加入队首，否则加入队尾<br>利用 STL 中的双端队列 deque 即可</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br><span class="hljs-type">int</span> u, v, w;<br>&#125; e[MAXN];<br><span class="hljs-type">int</span> cnt, f[MAXN], dis[MAXN], vis[MAXN];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span> </span>&#123;<br>e[++cnt] = (Edge) &#123;<br>f[u], v, w<br>&#125;;<br>f[u] = cnt;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SPFA</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>deque&lt;<span class="hljs-type">int</span>&gt; q;<br>q.<span class="hljs-built_in">push_front</span>(s);<br>dis[s] = <span class="hljs-number">0</span>;<br>vis[s] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br><span class="hljs-type">int</span> t = q.<span class="hljs-built_in">front</span>();<br>q.<span class="hljs-built_in">pop_front</span>();<br>vis[t] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = f[t]; i; i = e[i].u) &#123;<br><span class="hljs-type">int</span> v = e[i].v;<br><span class="hljs-keyword">if</span> (dis[v] &gt; dis[t] + e[i].w) &#123;<br>dis[v] = dis[t] + e[i].w;<br><span class="hljs-keyword">if</span> (!vis[v]) &#123;<br>vis[v] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">if</span> (!q.<span class="hljs-built_in">empty</span>() &amp;&amp; dis[v] &lt; dis[q.<span class="hljs-built_in">front</span>()] &#123;<br>q.<span class="hljs-built_in">push_front</span>(v);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>q.<span class="hljs-built_in">push_back</span>(v);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-built_in">main</span>() &#123;<br><span class="hljs-type">int</span> n, m, s, t, w;<br>cin &gt;&gt; n &gt;&gt; m;<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(f));<br><span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(vis));<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">0x3f</span>, <span class="hljs-built_in">sizeof</span>(dis));<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>cin &gt;&gt; s &gt;&gt; t &gt;&gt; w;<br><span class="hljs-built_in">Add</span>(s, t, w);<br>&#125;<br><span class="hljs-built_in">SPFA</span>(<span class="hljs-number">1</span>);<br>cout &lt;&lt; dis[n] &lt;&lt; endl;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">100000</span>;<br><span class="hljs-type">int</span> n, w, m;<br><span class="hljs-type">int</span> dis[N];<br><span class="hljs-type">int</span> k = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br><span class="hljs-type">int</span> start;<br><span class="hljs-type">int</span> endd;<br><span class="hljs-type">int</span> value;<br>&#125; edge[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span> </span>&#123;<br>edge[k].start = u;<br>edge[k].endd = v;<br>edge[k].value = w;<br>k++;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Ford</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">100000</span>, <span class="hljs-built_in">sizeof</span>(dis));<br>dis[s] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br><span class="hljs-type">bool</span> flag = <span class="hljs-literal">true</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; k; j++) &#123;<br><span class="hljs-type">int</span> u = edge[j].start;<br><span class="hljs-type">int</span> v = edge[j].endd;<br><span class="hljs-type">int</span> w = edge[j].value;<br><span class="hljs-keyword">if</span> (dis[u] + w &lt; dis[v]) &#123;<br>flag = <span class="hljs-literal">false</span>;<br>dis[v] = dis[u] + w;<br><span class="hljs-keyword">if</span> (i == n - <span class="hljs-number">1</span>)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span> (flag)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -474,9 +505,9 @@
       
       <tag>图论</tag>
       
-      <tag>最短路</tag>
+      <tag>模板</tag>
       
-      <tag>SPFA的slf优化</tag>
+      <tag>最短路</tag>
       
     </tags>
     
@@ -506,37 +537,6 @@
       <tag>bfs</tag>
       
       <tag>前缀和</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>模板 - Bellman-Ford</title>
-    <link href="/2024/03/11/muban-Bellman-Ford/"/>
-    <url>/2024/03/11/muban-Bellman-Ford/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">100000</span>;<br><span class="hljs-type">int</span> n, w, m;<br><span class="hljs-type">int</span> dis[N];<br><span class="hljs-type">int</span> k = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span> &#123;<br><span class="hljs-type">int</span> start;<br><span class="hljs-type">int</span> endd;<br><span class="hljs-type">int</span> value;<br>&#125; edge[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span> </span>&#123;<br>edge[k].start = u;<br>edge[k].endd = v;<br>edge[k].value = w;<br>k++;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Ford</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br><span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">100000</span>, <span class="hljs-built_in">sizeof</span>(dis));<br>dis[s] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br><span class="hljs-type">bool</span> flag = <span class="hljs-literal">true</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; k; j++) &#123;<br><span class="hljs-type">int</span> u = edge[j].start;<br><span class="hljs-type">int</span> v = edge[j].endd;<br><span class="hljs-type">int</span> w = edge[j].value;<br><span class="hljs-keyword">if</span> (dis[u] + w &lt; dis[v]) &#123;<br>flag = <span class="hljs-literal">false</span>;<br>dis[v] = dis[u] + w;<br><span class="hljs-keyword">if</span> (i == n - <span class="hljs-number">1</span>)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span> (flag)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>模板</category>
-      
-      <category>图论</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>图论</tag>
-      
-      <tag>模板</tag>
-      
-      <tag>最短路</tag>
       
     </tags>
     
@@ -704,9 +704,9 @@
     
     <tags>
       
-      <tag>bfs</tag>
-      
       <tag>最短路</tag>
+      
+      <tag>bfs</tag>
       
       <tag>搜索</tag>
       
