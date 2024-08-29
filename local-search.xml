@@ -346,6 +346,31 @@
   
   
   <entry>
+    <title>模板 - 状态压缩</title>
+    <link href="/2024/03/11/muban-zhuangya/"/>
+    <url>/2024/03/11/muban-zhuangya/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/44612da218524149bcb995e06d0b3cbf.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>模板</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>状态压缩</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解 - CF1882B Fear of the Dark</title>
     <link href="/2024/03/11/tijie-CF1882B/"/>
     <url>/2024/03/11/tijie-CF1882B/</url>
@@ -375,31 +400,6 @@
   
   
   <entry>
-    <title>模板 - 状态压缩</title>
-    <link href="/2024/03/11/muban-zhuangya/"/>
-    <url>/2024/03/11/muban-zhuangya/</url>
-    
-    <content type="html"><![CDATA[<p><img src="https://api-tcoj.aicoders.cn/opt/judge/api/public/img/44612da218524149bcb995e06d0b3cbf.png"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>模板</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>状态压缩</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>模板 - 矩阵快速幂</title>
     <link href="/2024/03/11/muban-juzhen-quick_pow/"/>
     <url>/2024/03/11/muban-juzhen-quick_pow/</url>
@@ -412,33 +412,6 @@
       <category>模板</category>
       
       <category>常用用法</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>快速幂</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>模板 - 快速幂</title>
-    <link href="/2024/03/11/muban-quick_pow/"/>
-    <url>/2024/03/11/muban-quick_pow/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> b, p, k;<br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span>  <span class="hljs-title">quik_power</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> base, <span class="hljs-type">long</span> <span class="hljs-type">long</span> power,<span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span> </span>&#123;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span>  result = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (power &gt; <span class="hljs-number">0</span>) &#123;         <span class="hljs-comment">//指数大于0进行指数折半，底数变其平方的操作</span><br><span class="hljs-keyword">if</span> (power &amp; <span class="hljs-number">1</span>)     <span class="hljs-comment">//指数为奇数</span><br>result=result * base%k;     <span class="hljs-comment">//分离出当前项并累乘后保存</span><br>power &gt;&gt;= <span class="hljs-number">1</span>;            <span class="hljs-comment">//指数折半</span><br>base=base * base%k;           <span class="hljs-comment">//底数变其平方</span><br>&#125;<br><span class="hljs-keyword">return</span> result;              <span class="hljs-comment">//返回最终结果</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    cin&gt;&gt;b&gt;&gt;p&gt;&gt;k;<br>    cout&lt;&lt;<span class="hljs-built_in">quik_power</span>(b,p,k);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>模板</category>
-      
-      <category>常用方法</category>
       
     </categories>
     
@@ -477,6 +450,33 @@
       <tag>最短路</tag>
       
       <tag>SPFA的slf优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板 - 快速幂</title>
+    <link href="/2024/03/11/muban-quick_pow/"/>
+    <url>/2024/03/11/muban-quick_pow/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> b, p, k;<br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span>  <span class="hljs-title">quik_power</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> base, <span class="hljs-type">long</span> <span class="hljs-type">long</span> power,<span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span> </span>&#123;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span>  result = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (power &gt; <span class="hljs-number">0</span>) &#123;         <span class="hljs-comment">//指数大于0进行指数折半，底数变其平方的操作</span><br><span class="hljs-keyword">if</span> (power &amp; <span class="hljs-number">1</span>)     <span class="hljs-comment">//指数为奇数</span><br>result=result * base%k;     <span class="hljs-comment">//分离出当前项并累乘后保存</span><br>power &gt;&gt;= <span class="hljs-number">1</span>;            <span class="hljs-comment">//指数折半</span><br>base=base * base%k;           <span class="hljs-comment">//底数变其平方</span><br>&#125;<br><span class="hljs-keyword">return</span> result;              <span class="hljs-comment">//返回最终结果</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    cin&gt;&gt;b&gt;&gt;p&gt;&gt;k;<br>    cout&lt;&lt;<span class="hljs-built_in">quik_power</span>(b,p,k);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>模板</category>
+      
+      <category>常用方法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>快速幂</tag>
       
     </tags>
     
